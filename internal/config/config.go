@@ -9,6 +9,7 @@ type Config struct {
 	IndexPath             string
 	MccRiskPath           string
 	IvfNprobe             int
+	IvfFullNprobe         int
 	Candidates            int
 	UseTCP                bool
 	Port                  int
@@ -30,6 +31,7 @@ func Load() *Config {
 		IndexPath:             envStr("INDEX_PATH", "resources/index.bin"),
 		MccRiskPath:           envStr("MCC_RISK_PATH", "resources/mcc_risk.json"),
 		IvfNprobe:             envInt("IVF_NPROBE", 32, 1, 512),
+		IvfFullNprobe:         envInt("IVF_FULL_NPROBE", 8, 1, 512),
 		Candidates:            envInt("CANDIDATES", 0, 0, 2000000),
 		UseTCP:                envInt("LISTEN_TCP", 0, 0, 1) == 1,
 		Port:                  envInt("PORT", 9999, 1, 65535),

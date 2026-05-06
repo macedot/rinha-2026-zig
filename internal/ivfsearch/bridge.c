@@ -58,6 +58,7 @@ typedef struct {
 
 static dataset_t g_dataset;
 static int g_nprobe = 1;
+static int g_full_nprobe = 4;
 static int g_candidates = 0;
 
 static int read_exact(FILE *f, void *ptr, size_t len) {
@@ -159,8 +160,9 @@ int rinha_load_index(const char *path) {
     return 0;
 }
 
-void rinha_set_search_params(int nprobe, int candidates) {
+void rinha_set_search_params(int nprobe, int full_nprobe, int candidates) {
     g_nprobe = nprobe;
+    g_full_nprobe = full_nprobe;
     g_candidates = candidates;
 }
 
@@ -468,35 +470,11 @@ static inline int count_frauds5(const uint8_t best_l[5]) {
     return (best_l[0] == 1) + (best_l[1] == 1) + (best_l[2] == 1) + (best_l[3] == 1) + (best_l[4] == 1);
 }
 
-int rinha_search(const float q_float[DIM]) {
-    int16_t q[DIM];
-    float q_grid[DIM];
-    for (int j = 0; j < DIM; j++) {
-        q[j] = quantize_fixed(q_float[j]);
-        q_grid[j] = (float)q[j] / FIX_SCALE;
-    }
-
-    int nprobe = g_nprobe;
-    if (nprobe < 1) nprobe = 1;
-    if (nprobe > IVF_MAX_NPROBE) nprobe = IVF_MAX_NPROBE;
+static int search_with_nprobe(int nprobe_to_use, const int best_c[], const float best_p[],
+                              const int16_t q[DIM]) {
+    int nprobe = nprobe_to_use;
     if (nprobe > IVF_CLUSTERS) nprobe = IVF_CLUSTERS;
-
-    int best_c[IVF_MAX_NPROBE];
-    float best_p[IVF_MAX_NPROBE];
-    for (int i = 0; i < nprobe; i++) { best_c[i] = -1; best_p[i] = FLT_MAX; }
-    for (int c = 0; c < IVF_CLUSTERS; c++) insert_probe_cluster(c, centroid_sqdist(q_grid, c), best_c, best_p, nprobe);
-
-    /* Reorder probes: scan smallest clusters first to tighten worst_d faster */
-    for (int i = 0; i < nprobe - 1; i++) {
-        for (int j = i + 1; j < nprobe; j++) {
-            int si = g_dataset.cluster_end[best_c[i]] - g_dataset.cluster_start[best_c[i]];
-            int sj = g_dataset.cluster_end[best_c[j]] - g_dataset.cluster_start[best_c[j]];
-            if (sj < si) {
-                int tc = best_c[i]; best_c[i] = best_c[j]; best_c[j] = tc;
-                float tp = best_p[i]; best_p[i] = best_p[j]; best_p[j] = tp;
-            }
-        }
-    }
+    if (nprobe < 1) nprobe = 1;
 
     uint64_t best_d[5] = { UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX };
     uint8_t best_l[5] = {0, 0, 0, 0, 0};
@@ -540,4 +518,52 @@ int rinha_search(const float q_float[DIM]) {
     }
 
     return count_frauds5(best_l);
+}
+
+int rinha_search(const float q_float[DIM]) {
+    int16_t q[DIM];
+    float q_grid[DIM];
+    for (int j = 0; j < DIM; j++) {
+        q[j] = quantize_fixed(q_float[j]);
+        q_grid[j] = (float)q[j] / FIX_SCALE;
+    }
+
+    int fast_nprobe = g_nprobe;
+    if (fast_nprobe < 1) fast_nprobe = 1;
+    if (fast_nprobe > IVF_MAX_NPROBE) fast_nprobe = IVF_MAX_NPROBE;
+    if (fast_nprobe > IVF_CLUSTERS) fast_nprobe = IVF_CLUSTERS;
+
+    int full_nprobe = g_full_nprobe;
+    if (full_nprobe < fast_nprobe) full_nprobe = fast_nprobe;
+    if (full_nprobe > IVF_MAX_NPROBE) full_nprobe = IVF_MAX_NPROBE;
+    if (full_nprobe > IVF_CLUSTERS) full_nprobe = IVF_CLUSTERS;
+
+    /* Compute ALL centroid distances once — keep top full_nprobe */
+    int best_c[IVF_MAX_NPROBE];
+    float best_p[IVF_MAX_NPROBE];
+    for (int i = 0; i < full_nprobe; i++) { best_c[i] = -1; best_p[i] = FLT_MAX; }
+    for (int c = 0; c < IVF_CLUSTERS; c++)
+        insert_probe_cluster(c, centroid_sqdist(q_grid, c), best_c, best_p, full_nprobe);
+
+    /* Reorder: scan smallest clusters first */
+    for (int i = 0; i < full_nprobe - 1; i++) {
+        for (int j = i + 1; j < full_nprobe; j++) {
+            int si = g_dataset.cluster_end[best_c[i]] - g_dataset.cluster_start[best_c[i]];
+            int sj = g_dataset.cluster_end[best_c[j]] - g_dataset.cluster_start[best_c[j]];
+            if (sj < si) {
+                int tc = best_c[i]; best_c[i] = best_c[j]; best_c[j] = tc;
+                float tp = best_p[i]; best_p[i] = best_p[j]; best_p[j] = tp;
+            }
+        }
+    }
+
+    /* Fast pass */
+    int result = search_with_nprobe(fast_nprobe, best_c, best_p, q);
+
+    /* Two-stage: if ambiguous (2 or 3 frauds), re-run with full probes */
+    if (result == 2 || result == 3) {
+        result = search_with_nprobe(full_nprobe, best_c, best_p, q);
+    }
+
+    return result;
 }

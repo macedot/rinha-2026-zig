@@ -19,8 +19,8 @@ func BridgeLoadIndex(path string) error {
 	return nil
 }
 
-func BridgeSetParams(nprobe, candidates int) {
-	C.rinha_set_search_params(C.int(nprobe), C.int(candidates))
+func BridgeSetParams(nprobe, fullNprobe, candidates int) {
+	C.rinha_set_search_params(C.int(nprobe), C.int(fullNprobe), C.int(candidates))
 }
 
 func BridgeSearch(qFloat [Dim]float32) int {
