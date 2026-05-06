@@ -127,7 +127,7 @@ func handler(ctx *fasthttp.RequestCtx) {
 		}
 		ctx.SetStatusCode(200)
 		ctx.SetContentType("application/json")
-		ctx.Response.SetBodyRaw(httpresp.Score[votes])
+		ctx.Response.SetBodyRaw(httpresp.ScoreBody[votes])
 		return
 	default:
 		ctx.SetStatusCode(404)

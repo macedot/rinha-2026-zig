@@ -60,62 +60,73 @@ func main() {
 		}
 	}
 
-	offsets := make([]uint32, IvfK+1)
-	writePos := make([]int, IvfK)
-	offsets[0] = 0
+	// Group vectors by cluster for AoSoA block packing
+	clusterVecs := make([][]int, IvfK)
 	for c := 0; c < IvfK; c++ {
-		offsets[c+1] = offsets[c] + uint32(counts[c])
+		clusterVecs[c] = make([]int, 0, counts[c])
 	}
-	for c := 0; c < IvfK; c++ {
-		writePos[c] = int(offsets[c])
-	}
-
-	outVectors := make([]int16, N*Dim)
-	outLabels := make([]uint8, N)
-	outIDs := make([]uint32, N)
-	bboxMin := make([]int16, IvfK*Dim)
-	bboxMax := make([]int16, IvfK*Dim)
-	for j := 0; j < IvfK*Dim; j++ {
-		bboxMin[j] = math.MaxInt16
-		bboxMax[j] = math.MinInt16
-	}
-
-	fmt.Fprintf(os.Stderr, "ordenando, quantizando e calculando bounding boxes...\n")
 	for i := 0; i < N; i++ {
 		c := assign[i]
-		pos := writePos[c]
-		writePos[c]++
-		v := items[i].Vector
-		dst := outVectors[pos*Dim : pos*Dim+Dim]
-		for j := 0; j < Dim; j++ {
-			qv := quantizeI16(v[j])
-			dst[j] = qv
-			bi := c*Dim + j
-			if qv < bboxMin[bi] {
-				bboxMin[bi] = qv
-			}
-			if qv > bboxMax[bi] {
-				bboxMax[bi] = qv
+		clusterVecs[c] = append(clusterVecs[c], i)
+	}
+
+	// Compute block offsets: each cluster's vectors padded to multiples of 8
+	blockOffsets := make([]uint32, IvfK+1)
+	blockOffsets[0] = 0
+	for c := 0; c < IvfK; c++ {
+		sz := uint32(counts[c])
+		blocks := (sz + 7) / 8
+		blockOffsets[c+1] = blockOffsets[c] + blocks
+	}
+	totalBlocks := int(blockOffsets[IvfK])
+	paddedN := totalBlocks * 8
+
+	// AoSoA blocks: each block is 8 vectors * 14 dims = 112 int16
+	// Layout within block: dim0[0..7], dim1[0..7], ..., dim13[0..7]
+	outBlocks := make([]int16, totalBlocks*112)
+	outLabels := make([]uint8, paddedN)
+	for i := range outBlocks {
+		outBlocks[i] = math.MaxInt16 // sentinel
+	}
+
+	fmt.Fprintf(os.Stderr, "empacotando AoSoA: %d blocos (%d vecs, %.2f MB)...\n",
+		totalBlocks, totalBlocks*112, float64(totalBlocks*112*2)/(1024*1024))
+
+	for c := 0; c < IvfK; c++ {
+		blockStart := int(blockOffsets[c])
+		nBlocks := int(blockOffsets[c+1] - blockOffsets[c])
+		vecs := clusterVecs[c]
+		for bk := 0; bk < nBlocks; bk++ {
+			blockBase := (blockStart + bk) * 112
+			labelBase := (blockStart + bk) * 8
+			for slot := 0; slot < 8; slot++ {
+				vi := bk*8 + slot
+				if vi < len(vecs) {
+					v := items[vecs[vi]].Vector
+					for d := 0; d < Dim; d++ {
+						outBlocks[blockBase+d*8+slot] = quantizeI16(v[d])
+					}
+					outLabels[labelBase+slot] = items[vecs[vi]].Label
+				}
 			}
 		}
-		outLabels[pos] = items[i].Label
-		outIDs[pos] = uint32(i)
 	}
-	for c := 0; c < IvfK; c++ {
-		if counts[c] == 0 {
-			for j := 0; j < Dim; j++ {
-				bboxMin[c*Dim+j] = 0
-				bboxMax[c*Dim+j] = 0
-			}
+
+	// Transpose centroids: row-major → column-major (dim-major)
+	centroidsT := make([]float32, IvfK*Dim)
+	for d := 0; d < Dim; d++ {
+		for c := 0; c < IvfK; c++ {
+			centroidsT[d*IvfK+c] = centroids[c*Dim+d]
 		}
 	}
 
 	fmt.Fprintf(os.Stderr, "gravando %s...\n", os.Args[2])
-	if err := writeIndex(os.Args[2], uint32(N), centroids, bboxMin, bboxMax, offsets, outVectors, outLabels, outIDs); err != nil {
+	if err := writeIndexIVF7(os.Args[2], uint32(N), centroidsT, blockOffsets, outLabels, outBlocks); err != nil {
 		fmt.Fprintf(os.Stderr, "falha gravando index\n")
 		os.Exit(1)
 	}
-	fmt.Fprintf(os.Stderr, "ok: %s (N=%d K=%d)\n", os.Args[2], N, IvfK)
+	fmt.Fprintf(os.Stderr, "ok: IVF7 %s (N=%d K=%d blocks=%d padded=%d)\n",
+		os.Args[2], N, IvfK, totalBlocks, paddedN)
 }
 
 func parseReferences(path string) ([]Item, error) {
@@ -263,27 +274,23 @@ func quantizeI16(x float32) int16 {
 	return int16(scaled)
 }
 
-func writeIndex(path string, n uint32, centroids []float32, bboxMin, bboxMax []int16, offsets []uint32, outVectors []int16, outLabels []uint8, outIDs []uint32) error {
+func writeIndexIVF7(path string, n uint32, centroidsT []float32, blockOffsets []uint32, outLabels []uint8, outBlocks []int16) error {
 	f, err := os.Create(path)
 	if err != nil {
 		return err
 	}
 	defer f.Close()
 
-	magic := []byte("IVF6")
-	binary.Write(f, binary.LittleEndian, magic)
+	binary.Write(f, binary.LittleEndian, []byte("IVF7"))
 	binary.Write(f, binary.LittleEndian, n)
 	binary.Write(f, binary.LittleEndian, uint32(IvfK))
 	binary.Write(f, binary.LittleEndian, uint32(Dim))
 	binary.Write(f, binary.LittleEndian, uint32(Dim))
 	binary.Write(f, binary.LittleEndian, float32(FixScale))
-	binary.Write(f, binary.LittleEndian, centroids)
-	binary.Write(f, binary.LittleEndian, bboxMin)
-	binary.Write(f, binary.LittleEndian, bboxMax)
-	binary.Write(f, binary.LittleEndian, offsets)
-	binary.Write(f, binary.LittleEndian, outVectors)
+	binary.Write(f, binary.LittleEndian, centroidsT)
+	binary.Write(f, binary.LittleEndian, blockOffsets)
 	binary.Write(f, binary.LittleEndian, outLabels)
-	binary.Write(f, binary.LittleEndian, outIDs)
+	binary.Write(f, binary.LittleEndian, outBlocks)
 	return f.Sync()
 }
 
