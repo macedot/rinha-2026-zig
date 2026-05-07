@@ -47,7 +47,7 @@ fn readAll(allocator: std.mem.Allocator, path: []const u8) ![]u8 {
 
 
 fn parseReferences(allocator: std.mem.Allocator, json_text: []const u8) !std.ArrayList(Item) {
-    var items: std.ArrayList(Item) = .empty;
+    var items: std.ArrayList(Item) = std.ArrayList(Item){};
     errdefer items.deinit(allocator);
 
     // Simple streaming parse: look for {"vector":[...],"label":"..."}
@@ -239,7 +239,7 @@ fn writeIndex(
         std.heap.page_allocator.free(cluster_vecs);
     }
     for (0..k) |ci| {
-        cluster_vecs[ci] = .empty;
+        cluster_vecs[ci] = std.ArrayList(usize){};
     }
 
     for (assignments, 0..) |a, i| {
