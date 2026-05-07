@@ -48,7 +48,7 @@ fn readAll(allocator: std.mem.Allocator, path: []const u8) ![]u8 {
 
 fn parseReferences(allocator: std.mem.Allocator, json_text: []const u8) !std.ArrayList(Item) {
     var items = std.ArrayList(Item).init(allocator);
-    errdefer items.deinit(allocator);
+    errdefer items.deinit();
 
     // Simple streaming parse: look for {"vector":[...],"label":"..."}
     var pos: usize = 0;
