@@ -81,7 +81,7 @@ fn parseReferences(allocator: std.mem.Allocator, json_text: []const u8) !std.Arr
         pos += 1;
         item.label = if (pos + 5 <= json_text.len and std.mem.eql(u8, json_text[pos..pos + 5], "fraud")) 1 else 0;
 
-        try items.append(allocator, item);
+        try items.append(item);
         if (items.items.len % 500000 == 0) {
             std.debug.print("parseados {} vetores\n", .{items.items.len});
         }
