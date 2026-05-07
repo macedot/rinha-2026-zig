@@ -11,24 +11,16 @@ x-api-common: &api-common
   deploy:
     resources:
       limits:
-        cpus: "0.425"
-        memory: "150MB"
+        cpus: "0.4"
+        memory: "160M"
   environment: &api-env
     INDEX_PATH: "/app/resources/index.bin"
-    MCC_RISK_PATH: "/app/resources/mcc_risk.json"
     LISTEN_TCP: "0"
     UDS_MODE: "666"
     UNLINK_UDS: "1"
     IVF_NPROBE: "8"
     IVF_FULL_NPROBE: "24"
     CANDIDATES: "0"
-    AMOUNT_DIVISOR: "10000"
-    INSTALLMENTS_DIVISOR: "12"
-    TX24H_DIVISOR: "20"
-    KM_DIVISOR: "1000"
-    MERCHANT_AMOUNT_DIVISOR: "10000"
-    GOGC: "100"
-    GOMEMLIMIT: "100MiB"
 
 services:
   haproxy:
@@ -47,8 +39,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.15"
-          memory: "50MB"
+          cpus: "0.2"
+          memory: "30M"
 
   api1:
     <<: *api-common

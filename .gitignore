@@ -6,3 +6,5 @@
 *.log
 /build_index
 /server
+zig/.zig-cache/
+zig/zig-out/
