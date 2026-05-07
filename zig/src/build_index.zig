@@ -321,13 +321,13 @@ fn writeIndex(
     try writeAll(fp, std.mem.sliceAsBytes(out_blocks));
 }
 
-pub fn main(init: std.process.Init) !void {
+pub fn main() !void {
     const allocator = std.heap.page_allocator;
 
-    var it = init.minimal.args.iterate();
-    _ = it.skip(); // skip program name
-    const input_path_arg = it.next();
-    const output_path_arg = it.next();
+    var args = std.process.args();
+    _ = args.skip(); // skip program name
+    const input_path_arg = args.next();
+    const output_path_arg = args.next();
     const input_path = if (input_path_arg) |a| a[0..a.len] else "resources/references.json.gz";
     const output_path = if (output_path_arg) |a| a[0..a.len] else "data/index.bin";
 

@@ -70,7 +70,7 @@ pub const Dataset = struct {
 
         // Transposed centroids: DIM * IVF_CLUSTERS floats, align(32)
         const centroids_len = DIM * IVF_CLUSTERS;
-        const centroids_t = try allocator.alignedAlloc(f32, std.mem.Alignment.fromByteUnits(32), centroids_len);
+        const centroids_t = try allocator.alignedAlloc(f32, 32, centroids_len);
         errdefer allocator.free(centroids_t);
         const centroids_bytes = std.mem.sliceAsBytes(centroids_t);
         _ = try file.read(centroids_bytes);
@@ -84,13 +84,13 @@ pub const Dataset = struct {
         const padded_n = total_blocks * 8;
 
         // Labels: padded_n uint8
-        const labels = try allocator.alignedAlloc(u8, std.mem.Alignment.fromByteUnits(64), padded_n);
+        const labels = try allocator.alignedAlloc(u8, 64, padded_n);
         errdefer allocator.free(labels);
         _ = try file.read(labels);
 
         // Blocks: total_blocks * BLOCK_STRIDE int16, align(32)
         const blocks_len = total_blocks * BLOCK_STRIDE;
-        const blocks = try allocator.alignedAlloc(i16, std.mem.Alignment.fromByteUnits(32), blocks_len);
+        const blocks = try allocator.alignedAlloc(i16, 32, blocks_len);
         errdefer allocator.free(blocks);
         const blocks_bytes = std.mem.sliceAsBytes(blocks);
         _ = try file.read(blocks_bytes);
