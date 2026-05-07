@@ -54,8 +54,8 @@ pub fn build(b: *std.Build) void {
         .name = "bench",
         .root_module = bench_mod,
     });
-    // only build bench for native
-    if (target.result.isNative()) b.installArtifact(bench);
+    _ = bench; // not installed (bench-binary only)
+    _ = bench; // not installed (bench-binary only)
 
     // Run step
     const run_cmd = b.addRunArtifact(server);
