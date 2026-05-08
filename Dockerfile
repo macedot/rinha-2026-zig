@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim AS build
+FROM debian:trixie-slim AS build
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget ca-certificates xz-utils gcc && rm -rf /var/lib/apt/lists/*
@@ -20,7 +20,7 @@ COPY data/index.bin ./data/
 RUN cd zig && zig build -Dtarget=x86_64-linux-musl -Dcpu=haswell -Doptimize=ReleaseFast \
     && mkdir -p /app && cp zig-out/bin/rinha-server /app/server
 
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
 
