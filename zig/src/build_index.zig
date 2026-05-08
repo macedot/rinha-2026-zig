@@ -235,7 +235,7 @@ fn writeIndex(
 
     var cluster_vecs = try std.heap.page_allocator.alloc(std.ArrayList(usize), k);
     defer {
-        for (cluster_vecs) |*cv| cv.deinit(std.heap.page_allocator);
+        for (cluster_vecs) |*cv| cv.deinit();
         std.heap.page_allocator.free(cluster_vecs);
     }
     for (0..k) |ci| {
@@ -243,7 +243,7 @@ fn writeIndex(
     }
 
     for (assignments, 0..) |a, i| {
-        try cluster_vecs[a].append(std.heap.page_allocator, i);
+        try cluster_vecs[a].append(i);
     }
 
     var block_offsets = try std.heap.page_allocator.alloc(u32, k + 1);
@@ -339,7 +339,7 @@ pub fn main() !void {
     std.debug.print("lido: {} bytes\n", .{json_text.len});
 
     var items = try parseReferences(allocator, json_text);
-    defer items.deinit(allocator);
+    defer items.deinit();
     const n = items.items.len;
     std.debug.print("vetores carregados: {}\n", .{n});
 
@@ -351,7 +351,7 @@ pub fn main() !void {
         vectors[i] = item.vector;
         labels[i] = item.label;
     }
-    items.deinit(allocator);
+    items.deinit();
 
     std.debug.print("kmeans++ init (sample={})...\n", .{@min(n, 50_000)});
     const centroids = try kmeansPlusPlusInit(vectors, K, 0xdeadbeef_cafebabe);
