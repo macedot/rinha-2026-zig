@@ -1,10 +1,37 @@
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-*.log
-/build_index
-/server
-zig/.zig-cache/
-zig/zig-out/
+# Deny all
+*
+
+# Allow project structure
+!/
+!/.github/
+!/.github/workflows/
+!/.github/workflows/*.yml
+!Dockerfile
+!LICENSE
+!README.md
+!autoresearch.sh
+!docker-compose.yml
+!haproxy.cfg
+!info.json
+!.gitignore
+
+# Allow data
+!data/
+!data/index.bin
+!data/index.bin.gz
+
+# Allow resources
+!resources/
+!resources/example-payloads.json
+!resources/example-references.json
+!resources/index.bin
+!resources/mcc_risk.json
+!resources/references.json.gz
+
+# Allow zig source
+!zig/
+!zig/build.zig
+!zig/src/
+!zig/src/*.zig
+!zig/src/*.c
+!zig/src/*.h

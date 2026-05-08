@@ -47,13 +47,13 @@ fn readAll(allocator: std.mem.Allocator, path: []const u8) ![]u8 {
 
 
 fn parseReferences(allocator: std.mem.Allocator, json_text: []const u8) !std.ArrayList(Item) {
-    var items = std.ArrayList(Item).init(allocator);
-    errdefer items.deinit();
+    var items: std.ArrayList(Item) = .empty;
+    errdefer items.deinit(allocator);
 
     // Simple streaming parse: look for {"vector":[...],"label":"..."}
     var pos: usize = 0;
     while (pos < json_text.len) {
-        const vec_idx = std.mem.indexOfPos(u8, json_text, pos, "\"vector\"") orelse break;
+        const vec_idx = std.mem.findPos(u8, json_text, pos, "\"vector\"") orelse break;
         pos = vec_idx + 8;
 
         // Find '['
@@ -74,14 +74,14 @@ fn parseReferences(allocator: std.mem.Allocator, json_text: []const u8) !std.Arr
         if (dim != DIM) continue;
 
         // Find "label"
-        const label_idx = std.mem.indexOfPos(u8, json_text, pos, "\"label\"") orelse continue;
+        const label_idx = std.mem.findPos(u8, json_text, pos, "\"label\"") orelse continue;
         pos = label_idx + 7;
         while (pos < json_text.len and json_text[pos] != '"') pos += 1;
         if (pos >= json_text.len) break;
         pos += 1;
         item.label = if (pos + 5 <= json_text.len and std.mem.eql(u8, json_text[pos..pos + 5], "fraud")) 1 else 0;
 
-        try items.append(item);
+        try items.append(allocator, item);
         if (items.items.len % 500000 == 0) {
             std.debug.print("parseados {} vetores\n", .{items.items.len});
         }
@@ -235,15 +235,15 @@ fn writeIndex(
 
     var cluster_vecs = try std.heap.page_allocator.alloc(std.ArrayList(usize), k);
     defer {
-        for (cluster_vecs) |*cv| cv.deinit();
+        for (cluster_vecs) |*cv| cv.deinit(std.heap.page_allocator);
         std.heap.page_allocator.free(cluster_vecs);
     }
     for (0..k) |ci| {
-        cluster_vecs[ci] = std.ArrayList(usize).init(std.heap.page_allocator);
+        cluster_vecs[ci] = std.ArrayList(usize).empty;
     }
 
     for (assignments, 0..) |a, i| {
-        try cluster_vecs[a].append(i);
+        try cluster_vecs[a].append(std.heap.page_allocator, i);
     }
 
     var block_offsets = try std.heap.page_allocator.alloc(u32, k + 1);
@@ -321,11 +321,11 @@ fn writeIndex(
     try writeAll(fp, std.mem.sliceAsBytes(out_blocks));
 }
 
-pub fn main() !void {
+pub fn main(init: std.process.Init.Minimal) !void {
     const allocator = std.heap.page_allocator;
 
-    var args = std.process.args();
-    _ = args.skip(); // skip program name
+    var args = init.args.iterate();
+    _ = args.next(); // skip program name
     const input_path_arg = args.next();
     const output_path_arg = args.next();
     const input_path = if (input_path_arg) |a| a[0..a.len] else "resources/references.json.gz";
@@ -339,7 +339,7 @@ pub fn main() !void {
     std.debug.print("lido: {} bytes\n", .{json_text.len});
 
     var items = try parseReferences(allocator, json_text);
-    defer items.deinit();
+    defer items.deinit(allocator);
     const n = items.items.len;
     std.debug.print("vetores carregados: {}\n", .{n});
 
@@ -351,7 +351,7 @@ pub fn main() !void {
         vectors[i] = item.vector;
         labels[i] = item.label;
     }
-    items.deinit();
+    items.deinit(allocator);
 
     std.debug.print("kmeans++ init (sample={})...\n", .{@min(n, 50_000)});
     const centroids = try kmeansPlusPlusInit(vectors, K, 0xdeadbeef_cafebabe);

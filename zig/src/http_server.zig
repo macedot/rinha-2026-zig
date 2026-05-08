@@ -72,7 +72,7 @@ pub const Server = struct {
     }
 
     fn tryProcess(self: *Server, fd: c_int, buf: []u8) !bool {
-        const header_end = std.mem.indexOf(u8, buf, "\r\n\r\n") orelse {
+        const header_end = std.mem.find(u8, buf, "\r\n\r\n") orelse {
             if (buf.len >= REQ_BUF_SIZE - 1) {
                 _ = try writeAll(fd, http_resp.resp_bad_req);
                 return true;
@@ -132,7 +132,7 @@ fn writeAll(fd: c_int, data: []const u8) !usize {
 
 fn findContentLength(headers: []const u8) ?usize {
     const key = "Content-Length:";
-    const pos = std.ascii.indexOfIgnoreCase(headers, key) orelse return null;
+    const pos = std.ascii.findIgnoreCase(headers, key) orelse return null;
     var p = pos + key.len;
     while (p < headers.len and (headers[p] == ' ' or headers[p] == '\t')) : (p += 1) {}
     var v: usize = 0;

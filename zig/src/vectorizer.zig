@@ -44,7 +44,7 @@ fn findKeyRange(data: []const u8, key: []const u8) ?[]const u8 {
     };
     var i: usize = 0;
     while (i < data.len) {
-        if (std.mem.indexOfPos(u8, data, i, pat)) |idx| {
+        if (std.mem.findPos(u8, data, i, pat)) |idx| {
             const start = data[idx..];
             if (start.len >= pat.len) return start;
             i = idx + 1;

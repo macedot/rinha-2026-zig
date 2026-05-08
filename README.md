@@ -1,51 +1,49 @@
 <h1 align="center">Rinha de Backend 2026 — Zig + C/AVX2</h1>
 
-<p align="center"><strong>Fraud detection API using IVF vector search with hand-tuned AVX2 kernels</strong></p>
+<p align="center"><strong>API de detecção de fraude usando busca vetorial IVF com kernels AVX2 otimizados à mão</strong></p>
 
 <p align="center">
   <img src="https://img.shields.io/github/license/macedot/rinha-2026-zig?color=blue" alt="License" />
   <img src="https://img.shields.io/badge/Zig-0.16-F7A41D?logo=zig&logoColor=white" alt="Zig" />
   <img src="https://img.shields.io/badge/C-AVX2-00599C?logo=c&logoColor=white" alt="C/AVX2" />
   <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/p99-0.95ms-4ade80" alt="p99 latency" />
-  <img src="https://img.shields.io/badge/score-6000-4ade80" alt="Score" />
 </p>
 
 ---
 
-**Submission for [Rinha de Backend 2026](https://github.com/zanfranceschi/rinha-de-backend-2026)** — fraud detection via vector search. Processes card transactions through a 14-dimensional feature vectorizer, searches 3 million reference vectors using IVF/K-means with AVX2-accelerated Euclidean distance, and returns fraud probability via k-NN majority vote.
+**Submissão para a [Rinha de Backend 2026](https://github.com/zanfranceschi/rinha-de-backend-2026)** — detecção de fraude via busca vetorial. Processa transações de cartão através de um vetorizador de 14 dimensões, busca 3 milhões de vetores de referência usando IVF/K-means com distância Euclidiana acelerada por AVX2, e retorna a probabilidade de fraude via votação majoritária k-NN.
 
-## Quick Start
+## Início Rápido
 
 ```bash
 docker compose up --build
 ```
 
-The API listens on port `9999`. Use the smoke test to verify:
+A API escuta na porta `9999`. Use o smoke test para verificar:
 
 ```bash
-# Requires k6 (https://k6.io)
-# Download test-data.json from the rinha-de-backend-2026 repo, then:
+# Requer k6 (https://k6.io)
+# Baixe test-data.json do repositório rinha-de-backend-2026, então:
 k6 run test.js
 ```
 
-### Pre-built images (from GitHub release)
+### Imagens pré-construídas (via GitHub Release)
 
 ```bash
 IMAGE=ghcr.io/macedot/rinha-2026-zig:latest docker compose up
 ```
 
-Replace `build: .` with `image: ghcr.io/macedot/rinha-2026-zig:latest` in `docker-compose.yml`.
+Substitua `build: .` por `image: ghcr.io/macedot/rinha-2026-zig:latest` no `docker-compose.yml`.
 
 ## API
 
 ### `GET /ready`
 
-Returns `200 OK` when the API has loaded the index and is ready to serve.
+Retorna `200 OK` quando a API carregou o índice e está pronta para atender requisições.
 
 ### `POST /fraud-score`
 
-**Request:**
+**Requisição:**
 ```json
 {
   "id": "tx-1329056812",
@@ -57,14 +55,14 @@ Returns `200 OK` when the API has loaded the index and is ready to serve.
 }
 ```
 
-**Response:**
+**Resposta:**
 ```json
 { "approved": true, "fraud_score": 0.0000 }
 ```
 
-Full API contract: [docs/en/API.md](https://github.com/zanfranceschi/rinha-de-backend-2026/blob/main/docs/en/API.md)
+Contrato completo da API: [docs/en/API.md](https://github.com/zanfranceschi/rinha-de-backend-2026/blob/main/docs/en/API.md)
 
-## Architecture
+## Arquitetura
 
 ```
                            ┌──────────┐
@@ -73,16 +71,16 @@ Full API contract: [docs/en/API.md](https://github.com/zanfranceschi/rinha-de-ba
                                  │ HTTP :9999
                           ┌──────▼────────┐
                           │  HAProxy 3.3  │
-                          │  cpus: 0.15   │
-                          │  mem:  50 MB  │
+                          │  cpus: 0.2    │
+                          │  mem:  30 MB  │
                           └───┬───────┬───┘
                               │       │
                      UDS /sockets/    UDS /sockets/
                       api1.sock       api2.sock
                    ┌──────▼──────┐ ┌──────▼──────┐
                    │    api1     │ │    api2     │
-                   │ cpus: 0.425 │ │ cpus: 0.425 │
-                   │ mem: 150 MB │ │ mem: 150 MB │
+                   │ cpus: 0.4   │ │ cpus: 0.4   │
+                   │ mem: 160 MB │ │ mem: 160 MB │
                    │             │ │             │
                    │┌───────────┐│ │┌───────────┐│
                    ││Zig HTTP   ││ ││Zig HTTP   ││
@@ -90,140 +88,141 @@ Full API contract: [docs/en/API.md](https://github.com/zanfranceschi/rinha-de-ba
                    │└─────┬─────┘│ │└─────┬─────┘│
                    │      │      │ │      │      │
                    │┌─────▼─────┐│ │┌─────▼─────┐│
-                   ││ Vectorizer││ ││ Vectorizer││
+                   ││Vetorizador││ ││Vetorizador││
                    ││ 14-dim    ││ ││ 14-dim    ││
                    │└─────┬─────┘│ │└─────┬─────┘│
                    │      │      │ │      │      │
                    │┌─────▼─────┐│ │┌─────▼─────┐│
                    ││ C/AVX2    ││ ││ C/AVX2    ││
                    ││ IVF Search││ ││ IVF Search││
-                   ││ 1024 cls. ││ ││ 1024 cls. ││
+                   ││ 4096 clst.││ ││ 4096 clst.││
                    │└───────────┘│ │└───────────┘│
                    └─────────────┘ └─────────────┘
 
     ┌──────────────────────────────────────────────────────┐
     │  rinha-sockets (tmpfs, 10mb)  ·  bridge network      │
-    │  CPU total: 1.0   |   Memory total: 350 MB           │
+    │  CPU total: 1.0   |   Memória total: 350 MB          │
     └──────────────────────────────────────────────────────┘
 ```
 
-### Request flow
+### Fluxo da requisição
 
 ```mermaid
 flowchart LR
-    Client[Client] -->|1. POST /fraud-score| HAProxy[HAProxy :9999]
+    Client[Cliente] -->|1. POST /fraud-score| HAProxy[HAProxy :9999]
     HAProxy -->|2. round-robin UDS| API1[api1]
     HAProxy -->|2. round-robin UDS| API2[api2]
-    subgraph api [api instance]
-        HTTP[Zig HTTP] -->|3. parse JSON| VEC[Vectorizer 14-dim]
-        VEC -->|4. int16 quantized| IVF[C/AVX2 IVF Search]
+    subgraph api [instância api]
+        HTTP[Zig HTTP] -->|3. parse JSON| VEC[Vetorizador 14-dim]
+        VEC -->|4. int16 quantizado| IVF[C/AVX2 IVF Search]
         IVF -->|5. top-5 k-NN| SCORE[fraud_score]
     end
-    SCORE -->|6. JSON response| Client
+    SCORE -->|6. resposta JSON| Client
 ```
 
-### How it works
+### Como funciona
 
-1. **Client** sends `POST /fraud-score` with transaction JSON to port `9999`
-2. **HAProxy** round-robin forwards the raw HTTP request over a **Unix Domain Socket** (`/sockets/api1.sock` or `api2.sock`) — zero TCP overhead, no payload inspection
-3. **Zig HTTP server** parses the JSON body (zero-allocation custom parser) and extracts all fields
-4. **Vectorizer** transforms the payload into a 14-dimension float vector using the official normalization formulas, then quantizes to `int16` for the C bridge
-5. **C/AVX2 IVF Search** selects the 4 nearest clusters (out of 1024), scans their points with AVX2-accelerated Euclidean distance (early termination + 2× unroll), and returns the k=5 nearest neighbors
-6. **fraud_score** = frauds among top 5 / 5; `approved = fraud_score < 0.6`
+1. O **cliente** envia `POST /fraud-score` com JSON da transação para a porta `9999`
+2. O **HAProxy** distribui via round-robin a requisição HTTP bruta sobre **Unix Domain Socket** (`/sockets/api1.sock` ou `api2.sock`) — zero overhead TCP, sem inspeção de payload
+3. O **servidor HTTP Zig** faz parse do body JSON (parser customizado sem alocação) e extrai todos os campos
+4. O **vetorizador** transforma o payload em um vetor float de 14 dimensões usando as fórmulas oficiais de normalização, depois quantiza para `int16` para o bridge C
+5. O **IVF Search C/AVX2** seleciona os clusters mais próximos (de 4096), escaneia seus pontos com distância Euclidiana acelerada por AVX2 (terminação antecipada + unroll 2x), e retorna os k=5 vizinhos mais próximos
+6. **fraud_score** = fraudes entre os top 5 / 5; `approved = fraud_score < 0.6`
 
-### Components
+### Componentes
 
-| Component | Language | Role |
-|-----------|----------|------|
-| **HAProxy 3.3** | C | Layer 7 load balancer, round-robin over UDS (`balance roundrobin`) |
-| **Zig HTTP server** | Zig | HTTP handling, UDS listener, zero-allocation JSON parsing |
-| **Vectorizer** | Zig | 14-dim feature vectorizer following official normalization rules; `int16` quantization |
-| **IVF Search bridge** | C/AVX2 | IVF/K-means search: 1024 clusters, centroid distance ranking, bounding-box pruning, AVX2 Euclidean distance with early termination and 2× loop unrolling |
-| **build_index** | Zig | Pre-processes `references.json.gz` (3M vectors) into IVF7 binary index: K-means clustering, `int16` quantization, column-major layout, per-cluster bounding boxes |
+| Componente | Linguagem | Função |
+|------------|-----------|--------|
+| **HAProxy 3.3** | C | Load balancer Layer 4, round-robin via UDS (`balance roundrobin`) |
+| **Servidor HTTP Zig** | Zig | Handling HTTP, listener UDS/TCP, parser JSON sem alocação |
+| **Vetorizador** | Zig | Vetorizador de features 14-dim seguindo regras oficiais de normalização; quantização `int16` |
+| **IVF Search bridge** | C/AVX2 | Busca IVF/K-means: 4096 clusters, ranking por distância de centroides, distância Euclidiana AVX2 com terminação antecipada |
+| **build_index** | Zig | Pré-processa `references.json.gz` (3M vetores) em índice binário IVF1: clustering K-means, quantização `int16`, layout AoSoA coluna-maior |
 
-### Transport
+### Transporte
 
-HAProxy communicates with the API instances via **Unix Domain Sockets** on a `tmpfs` volume (`rinha-sockets`). This eliminates TCP overhead entirely — no kernel network stack, no socket buffers, no accept queues. A single 10 MB tmpfs volume holds both API socket files.
+O HAProxy se comunica com as instâncias da API via **Unix Domain Sockets** em um volume `tmpfs` (`rinha-sockets`). Isso elimina o overhead TCP inteiramente — sem stack de rede no kernel, sem buffers de socket, sem filas de accept. Um único volume tmpfs de 10 MB armazena ambos os arquivos de socket.
 
-### Tech Stack
+### Stack Tecnológica
 
-- **Zig 0.16** — Custom HTTP server, UDS transport, zero-alloc JSON parser
-- **C** — AVX2 intrinsics for Euclidean distance, IVF/K-means search engine
-- **HAProxy 3.3** — stateless round-robin load balancer
-- **Docker Compose** — 3 services, bridge network, resource limits via `deploy.resources.limits`
+- **Zig 0.16** — Servidor HTTP customizado, transporte UDS, parser JSON sem alocação
+- **C** — Intrínsecos AVX2 para distância Euclidiana, motor de busca IVF/K-means
+- **HAProxy 3.3** — Load balancer stateless round-robin
+- **Docker Compose** — 3 serviços, rede bridge, limites de recursos via `deploy.resources.limits`
 
-## Optimization Highlights
+## Otimizações
 
-The IVF search kernel underwent extensive micro-optimization targeting p99 latency on a [Mac Mini Late 2014](https://support.apple.com/en-us/111931) (2.6 GHz Haswell, 8 GB RAM) with Docker resource limits of 1.0 CPU and 350 MB total memory.
+O kernel de busca IVF passou por extensa micro-otimização visando latência p99 com limites Docker de 1.0 CPU e 350 MB de memória total.
 
-| Optimization | Impact | Technique |
-|-------------|--------|-----------|
-| **1024 IVF clusters** | -0.25ms p99 | Finer partitioning cuts scanned points from ~58K to ~12K per query |
-| **AVX2 early termination** | -0.06ms | Skip 11 dims for batches where all 8 lanes exceed worst distance after first 3 dims |
-| **2× loop unroll** | -0.05ms | Process 16 elements per iteration with interleaved dimension accumulation to hide memory latency |
-| **Cluster reordering** | -0.03ms | Scan smallest clusters first to tighten `worst_d` sooner, enabling more early termination |
-| **Pre-computed HTTP responses** | -0.02ms | Static byte slices avoid allocations per request |
-| **UDS transport** | -0.08ms | HAProxy ↔ API via Unix domain sockets (zero TCP overhead) |
+| Otimização | Técnica |
+|------------|---------|
+| **4096 clusters IVF** | Particionamento mais fino reduz pontos escaneados por query |
+| **Terminação antecipada AVX2** | Pula dimensões restantes para batches onde todas as 8 lanes excedem a pior distância após as primeiras 7 dimensões |
+| **Unroll 2x** | Processa 16 elementos por iteração com acumulação intercalada de dimensões para esconder latência de memória |
+| **Reordenação de clusters** | Escaneia clusters menores primeiro para apertar `worst_d` mais cedo, habilitando mais terminação antecipada |
+| **Respostas HTTP pré-computadas** | Slices de bytes estáticos evitam alocações por requisição |
+| **Transporte UDS** | HAProxy <-> API via Unix Domain Sockets (zero overhead TCP) |
 
-**Overall: 1.56ms → 0.95ms p99 (-39%), score 5806 → 6000 (+194 pts)**
+## Configuração
 
-## Configuration
+| Variável | Padrão | Descrição |
+|----------|--------|-----------|
+| `INDEX_PATH` | `resources/index.bin` | Caminho para o índice binário IVF1 |
+| `IVF_NPROBE` | `8` | Número de clusters IVF para probe (passada rápida) |
+| `IVF_FULL_NPROBE` | `24` | Número de clusters IVF para probe (passada completa) |
+| `CANDIDATES` | `0` | Máximo de candidatos para escanear por cluster (0 = ilimitado) |
+| `LISTEN_TCP` | `0` | Usa TCP ao invés de UDS (`1` = TCP) |
+| `PORT` | `9999` | Porta de escuta TCP |
+| `HOST` | `0.0.0.0` | Endereço de escuta TCP |
+| `UDS_PATH` | — | Caminho do Unix Domain Socket (obrigatório no modo UDS) |
+| `UDS_MODE` | `666` | Permissões do arquivo de socket (decimal, ex: 666 = rw-rw-rw-) |
+| `UNLINK_UDS` | `1` | Remove socket antigo antes do bind |
+| `TCP_NODELAY` | `1` | Habilita TCP_NODELAY |
+| `USE_ZIG` | — | Se definido, usa busca IVF pura em Zig ao invés do bridge C |
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `IVF_NPROBE` | `4` | Number of IVF clusters to probe per query |
-| `IVF_FULL_NPROBE` | `24` | Number of IVF clusters to probe with full scan |
-| `CANDIDATES` | `0` | Max candidates to scan (0 = unlimited + bbox pass) |
-| `AMOUNT_DIVISOR` | `10000` | Normalization constant (max_amount) |
-| `INSTALLMENTS_DIVISOR` | `12` | Normalization constant (max_installments) |
-| `TX24H_DIVISOR` | `20` | Normalization constant (max_tx_count_24h) |
-| `KM_DIVISOR` | `1000` | Normalization constant (max_km) |
-| `MERCHANT_AMOUNT_DIVISOR` | `10000` | Normalization constant (max_merchant_avg_amount) |
-
-All normalization constants match the official `normalization.json`.
-
-## Repository Structure
+## Estrutura do Repositório
 
 ```
-# main branch
 ├── zig/
-│   ├── build.zig                # Zig build system (compiles bridge.c + Zig sources)
+│   ├── build.zig                # Build system Zig (compila bridge.c + fontes Zig)
 │   └── src/
-│       ├── main.zig             # Entry point: load index, warm cache, start server
-│       ├── config.zig           # Environment-based configuration
-│       ├── http_server.zig      # TCP/UDS HTTP server using C POSIX sockets
-│       ├── http_resp.zig        # Pre-computed static HTTP responses
-│       ├── vectorizer.zig       # 14-dim feature vectorizer + custom JSON parser
-│       ├── mcc_risk.zig         # MCC risk lookup table from JSON
-│       ├── dataset.zig           # IVF binary index loader
-│       ├── c_bridge.zig        # Thin wrapper around C/AVX2 bridge
-│       ├── bridge.c              # C/AVX2 IVF search kernel
-│       ├── bridge.h              # C bridge header
-│       ├── build_index.zig      # IVF index builder
-│       └── ivf_search.zig       # Pure-Zig AVX2 reference implementation
+│       ├── main.zig             # Entry point: carrega índice, aquece cache, inicia servidor
+│       ├── config.zig           # Configuração baseada em variáveis de ambiente
+│       ├── http_server.zig      # Servidor HTTP TCP/UDS usando C POSIX sockets
+│       ├── http_resp.zig        # Respostas HTTP estáticas pré-computadas
+│       ├── vectorizer.zig       # Vetorizador de features 14-dim + parser JSON customizado
+│       ├── mcc_risk.zig         # Tabela de lookup de risco MCC via JSON
+│       ├── dataset.zig          # Loader de índice binário IVF1
+│       ├── c_bridge.zig         # Wrapper fino sobre o bridge C/AVX2
+│       ├── bridge.c             # Kernel de busca IVF C/AVX2
+│       ├── bridge.h             # Header do bridge C
+│       ├── build_index.zig      # Builder de índice IVF1 (K-means + quantização)
+│       └── ivf_search.zig       # Implementação de busca IVF pura em Zig
 ├── resources/
-│   ├── index.bin                # Pre-built IVF index (3M vectors)
-│   ├── mcc_risk.json            # Merchant category risk table
-│   └── references.json.gz        # 3M labeled reference vectors
-├── Dockerfile                   # Multi-stage: Zig build → slim Debian runtime
-├── docker-compose.yml           # 3-service deployment with resource limits
-├── haproxy.cfg                  # HAProxy round-robin UDS configuration
-├── .github/workflows/release.yml # CI: build & push Docker image to GHCR
+│   ├── index.bin                # Índice IVF1 pré-construído (3M vetores)
+│   ├── mcc_risk.json            # Tabela de risco por categoria de comerciante
+│   └── references.json.gz       # 3M vetores de referência rotulados
+├── data/
+│   ├── index.bin                # Índice IVF1 construído (saída do build_index)
+│   └── index.bin.gz             # Índice IVF1 comprimido
+├── Dockerfile                   # Multi-stage: build Zig → runtime Debian slim
+├── docker-compose.yml           # Deploy 3 serviços com limites de recursos
+├── haproxy.cfg                  # Configuração HAProxy round-robin UDS
+├── autoresearch.sh              # Runner de benchmark (docker compose + k6)
+├── .github/workflows/release.yml # CI: build & push imagem Docker no GHCR
 ├── LICENSE                      # MIT
-├── info.json                    # Rinha participant info
+├── info.json                    # Info do participante da Rinha
 └── README.md
 ```
 
-> The `submission` branch contains only `docker-compose.yml`, `haproxy.cfg`, and `info.json` — no source code.
-
 ## CI/CD
 
-GitHub Actions builds and pushes a `linux/amd64` Docker image to `ghcr.io/macedot/rinha-2026-zig` on every published release (prereleases excluded). Images are tagged with both the release version and `latest`.
+GitHub Actions faz build e push de uma imagem Docker `linux/amd64` para `ghcr.io/macedot/rinha-2026-zig` a cada release publicada (prereleases excluídas). Imagens são tagueadas com a versão da release e `latest`.
 
-## Test Environment
+## Agradecimentos
 
-The official test runs on a Mac Mini Late 2014 (2.6 GHz Haswell, 8 GB RAM, Ubuntu 24.04) with Docker resource limits of **1.0 CPU** and **350 MB memory** across all services. All optimizations were tuned specifically for this hardware.
+O kernel de busca IVF em C/AVX2 (`bridge.c`) é um port da implementação do [rinha-2026-rust](https://github.com/jairoblatt/rinha-2026-rust) do [@jairoblatt](https://github.com/jairoblatt). Obrigado pela excelente referência — o formato de índice IVF1, o layout de blocos AoSoA e os kernels de distância AVX2 são baseados diretamente nesse trabalho.
 
-## License
+## Licença
 
-This project is licensed under the [MIT License](LICENSE).
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
