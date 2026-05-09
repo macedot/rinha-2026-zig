@@ -70,9 +70,9 @@ Contrato completo da API: [docs/en/API.md](https://github.com/zanfranceschi/rinh
                            └─────┬────┘
                                  │ HTTP :9999
                           ┌──────▼────────┐
-                          │  HAProxy 3.3  │
+                          │    passa      │
                           │  cpus: 0.2    │
-                          │  mem:  30 MB  │
+                          │  mem:  50 MB  │
                           └───┬───────┬───┘
                               │       │
                      UDS /sockets/    UDS /sockets/
@@ -100,7 +100,7 @@ Contrato completo da API: [docs/en/API.md](https://github.com/zanfranceschi/rinh
                    └─────────────┘ └─────────────┘
 
     ┌──────────────────────────────────────────────────────┐
-    │  rinha-sockets (tmpfs, 10mb)  ·  bridge network      │
+    │  rinha-zig-sockets (tmpfs, 10mb)  ·  bridge network      │
     │  CPU total: 1.0   |   Memória total: 350 MB          │
     └──────────────────────────────────────────────────────┘
 ```
@@ -109,9 +109,9 @@ Contrato completo da API: [docs/en/API.md](https://github.com/zanfranceschi/rinh
 
 ```mermaid
 flowchart LR
-    Client[Cliente] -->|1. POST /fraud-score| HAProxy[HAProxy :9999]
-    HAProxy -->|2. round-robin UDS| API1[api1]
-    HAProxy -->|2. round-robin UDS| API2[api2]
+    Client[Cliente] -->|1. POST /fraud-score| Passa[passa :9999]
+    Passa -->|2. round-robin UDS| API1[api1]
+    Passa -->|2. round-robin UDS| API2[api2]
     subgraph api [instância api]
         HTTP[Zig HTTP] -->|3. parse JSON| VEC[Vetorizador 14-dim]
         VEC -->|4. int16 quantizado| IVF[C/AVX2 IVF Search]
@@ -123,7 +123,7 @@ flowchart LR
 ### Como funciona
 
 1. O **cliente** envia `POST /fraud-score` com JSON da transação para a porta `9999`
-2. O **HAProxy** distribui via round-robin a requisição HTTP bruta sobre **Unix Domain Socket** (`/sockets/api1.sock` ou `api2.sock`) — zero overhead TCP, sem inspeção de payload
+2. O **passa** distribui via round-robin a requisição HTTP bruta sobre **Unix Domain Socket** (`/sockets/api1.sock` ou `api2.sock`) — zero overhead TCP, sem inspeção de payload
 3. O **servidor HTTP Zig** faz parse do body JSON (parser customizado sem alocação) e extrai todos os campos
 4. O **vetorizador** transforma o payload em um vetor float de 14 dimensões usando as fórmulas oficiais de normalização, depois quantiza para `int16` para o bridge C
 5. O **IVF Search C/AVX2** seleciona os clusters mais próximos (de 4096), escaneia seus pontos com distância Euclidiana acelerada por AVX2 (terminação antecipada + unroll 2x), e retorna os k=5 vizinhos mais próximos
@@ -133,7 +133,7 @@ flowchart LR
 
 | Componente | Linguagem | Função |
 |------------|-----------|--------|
-| **HAProxy 3.3** | C | Load balancer Layer 4, round-robin via UDS (`balance roundrobin`) |
+| **passa** | Rust | Load balancer Layer 4, round-robin via UDS |
 | **Servidor HTTP Zig** | Zig | Handling HTTP, listener UDS/TCP, parser JSON sem alocação |
 | **Vetorizador** | Zig | Vetorizador de features 14-dim seguindo regras oficiais de normalização; quantização `int16` |
 | **IVF Search bridge** | C/AVX2 | Busca IVF/K-means: 4096 clusters, ranking por distância de centroides, distância Euclidiana AVX2 com terminação antecipada |
@@ -141,13 +141,13 @@ flowchart LR
 
 ### Transporte
 
-O HAProxy se comunica com as instâncias da API via **Unix Domain Sockets** em um volume `tmpfs` (`rinha-sockets`). Isso elimina o overhead TCP inteiramente — sem stack de rede no kernel, sem buffers de socket, sem filas de accept. Um único volume tmpfs de 10 MB armazena ambos os arquivos de socket.
+O passa se comunica com as instâncias da API via **Unix Domain Sockets** em um volume `tmpfs` (`rinha-zig-sockets`). Isso elimina o overhead TCP inteiramente — sem stack de rede no kernel, sem buffers de socket, sem filas de accept. Um único volume tmpfs de 10 MB armazena ambos os arquivos de socket.
 
 ### Stack Tecnológica
 
 - **Zig 0.16** — Servidor HTTP customizado, transporte UDS, parser JSON sem alocação
 - **C** — Intrínsecos AVX2 para distância Euclidiana, motor de busca IVF/K-means
-- **HAProxy 3.3** — Load balancer stateless round-robin
+- **passa** — Load balancer stateless round-robin
 - **Docker Compose** — 3 serviços, rede bridge, limites de recursos via `deploy.resources.limits`
 
 ## Otimizações
@@ -161,7 +161,7 @@ O kernel de busca IVF passou por extensa micro-otimização visando latência p9
 | **Unroll 2x** | Processa 16 elementos por iteração com acumulação intercalada de dimensões para esconder latência de memória |
 | **Reordenação de clusters** | Escaneia clusters menores primeiro para apertar `worst_d` mais cedo, habilitando mais terminação antecipada |
 | **Respostas HTTP pré-computadas** | Slices de bytes estáticos evitam alocações por requisição |
-| **Transporte UDS** | HAProxy <-> API via Unix Domain Sockets (zero overhead TCP) |
+| **Transporte UDS** | passa <-> API via Unix Domain Sockets (zero overhead TCP) |
 
 ## Configuração
 
@@ -207,13 +207,15 @@ O kernel de busca IVF passou por extensa micro-otimização visando latência p9
 │   └── index.bin.gz             # Índice IVF1 comprimido
 ├── Dockerfile                   # Multi-stage: build Zig → runtime Debian slim
 ├── docker-compose.yml           # Deploy 3 serviços com limites de recursos
-├── haproxy.cfg                  # Configuração HAProxy round-robin UDS
+├── haproxy.cfg                  # Configuração legada de UDS round-robin do HAProxy
 ├── autoresearch.sh              # Runner de benchmark (docker compose + k6)
 ├── .github/workflows/release.yml # CI: build & push imagem Docker no GHCR
 ├── LICENSE                      # MIT
 ├── info.json                    # Info do participante da Rinha
 └── README.md
 ```
+
+> O branch `submission` contém apenas `docker-compose.yml` e `info.json` — sem código fonte. Ele referencia a imagem pré-compilada `ghcr.io/macedot/rinha-2026-zig:latest`.
 
 ## CI/CD
 
