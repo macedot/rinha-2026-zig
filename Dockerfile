@@ -13,12 +13,12 @@ ENV PATH="/usr/local/zig:${PATH}"
 WORKDIR /src
 COPY zig/build.zig zig/build.zig
 COPY zig/src/ zig/src/
-COPY bridge/ bridge/
+COPY bridge/ zig/bridge/
 COPY resources/ resources/
 
-RUN mkdir -p data && gzip -dkc bridge/data/index.bin.gz > data/index.bin && \
+RUN mkdir -p /app && gzip -dkc zig/bridge/data/index.bin.gz > data/index.bin && \
     cd zig && zig build -Dtarget=x86_64-linux-musl -Dcpu=haswell -Doptimize=ReleaseFast \
-    && mkdir -p /app && cp zig-out/bin/rinha-server /app/server
+    && cp zig-out/bin/rinha-server /app/server
 
 FROM debian:trixie-slim
 
