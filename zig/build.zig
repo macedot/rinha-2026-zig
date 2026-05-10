@@ -12,8 +12,9 @@ pub fn build(b: *std.Build) void {
         .link_libc = true,
     });
     server_mod.addIncludePath(b.path("src"));
+    server_mod.addIncludePath(b.path("bridge"));
     server_mod.addCSourceFile(.{
-        .file = b.path("src/bridge.c"),
+        .file = b.path("bridge/bridge.c"),
         .flags = &.{ "-O3", "-march=haswell", "-mfma", "-fomit-frame-pointer", "-fno-semantic-interposition", "-fno-trapping-math", "-fno-math-errno", "-ffp-contract=fast", "-DNDEBUG" },
     });
     server_mod.linkSystemLibrary("m", .{});
@@ -44,8 +45,9 @@ pub fn build(b: *std.Build) void {
         .link_libc = true,
     });
     bench_mod.addIncludePath(b.path("src"));
+    bench_mod.addIncludePath(b.path("bridge"));
     bench_mod.addCSourceFile(.{
-        .file = b.path("src/bridge.c"),
+        .file = b.path("bridge/bridge.c"),
         .flags = &.{ "-O3", "-march=haswell", "-mfma", "-fomit-frame-pointer", "-fno-semantic-interposition", "-fno-trapping-math", "-fno-math-errno", "-ffp-contract=fast", "-DNDEBUG" },
     });
     bench_mod.linkSystemLibrary("m", .{});

@@ -13,6 +13,7 @@ ENV PATH="/usr/local/zig:${PATH}"
 WORKDIR /src
 COPY zig/build.zig zig/build.zig
 COPY zig/src/ zig/src/
+COPY bridge/ bridge/
 COPY resources/ resources/
 COPY data/index.bin ./data/
 
