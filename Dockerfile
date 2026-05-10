@@ -16,7 +16,7 @@ COPY zig/src/ zig/src/
 COPY bridge/ zig/bridge/
 COPY resources/ resources/
 
-RUN mkdir -p /app && gzip -dkc zig/bridge/data/index.bin.gz > data/index.bin && \
+RUN mkdir -p data /app && gzip -dkc zig/bridge/data/index.bin.gz > data/index.bin && \
     cd zig && zig build -Dtarget=x86_64-linux-musl -Dcpu=haswell -Doptimize=ReleaseFast \
     && cp zig-out/bin/rinha-server /app/server
 
