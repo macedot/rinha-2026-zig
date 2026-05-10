@@ -1,0 +1,57 @@
+x-api-common: &api-common
+  image: ghcr.io/macedot/rinha-2026-zig:latest
+  networks:
+    - rinha-zig-net
+  ulimits:
+    nofile:
+      soft: 65535
+      hard: 65535
+  deploy:
+    resources:
+      limits:
+        cpus: "0.4"
+        memory: "160M"
+  environment: &api-env
+    INDEX_PATH: "/app/resources/index.bin"
+    LISTEN_TCP: "1"
+    PORT: "8080"
+    IVF_NPROBE: "8"
+    IVF_FULL_NPROBE: "24"
+    CANDIDATES: "0"
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: rinha-zig-nginx
+    ports:
+      - "9999:9999"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    networks:
+      - rinha-zig-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "50M"
+
+  api1:
+    <<: *api-common
+    container_name: rinha-zig-api1
+    hostname: api1
+    environment:
+      <<: *api-env
+
+  api2:
+    <<: *api-common
+    container_name: rinha-zig-api2
+    hostname: api2
+    environment:
+      <<: *api-env
+
+networks:
+  rinha-zig-net:
+    driver: bridge
