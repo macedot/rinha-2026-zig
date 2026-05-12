@@ -1,0 +1,4181 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "bridge.c",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L1",
+      "id": "bridge_bridge_c",
+      "community": 0,
+      "norm_label": "bridge.c"
+    },
+    {
+      "label": "get_nanos()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L10",
+      "id": "bridge_bridge_get_nanos",
+      "community": 0,
+      "norm_label": "get_nanos()"
+    },
+    {
+      "label": "rinha_get_inst()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L24",
+      "id": "bridge_bridge_rinha_get_inst",
+      "community": 0,
+      "norm_label": "rinha_get_inst()"
+    },
+    {
+      "label": "rinha_reset_inst()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L34",
+      "id": "bridge_bridge_rinha_reset_inst",
+      "community": 0,
+      "norm_label": "rinha_reset_inst()"
+    },
+    {
+      "label": "xaligned_alloc()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L61",
+      "id": "bridge_bridge_xaligned_alloc",
+      "community": 0,
+      "norm_label": "xaligned_alloc()"
+    },
+    {
+      "label": "quantize_fixed()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L68",
+      "id": "bridge_bridge_quantize_fixed",
+      "community": 0,
+      "norm_label": "quantize_fixed()"
+    },
+    {
+      "label": "read_exact()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L101",
+      "id": "bridge_bridge_read_exact",
+      "community": 0,
+      "norm_label": "read_exact()"
+    },
+    {
+      "label": "rinha_load_index()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L105",
+      "id": "bridge_bridge_rinha_load_index",
+      "community": 0,
+      "norm_label": "rinha_load_index()"
+    },
+    {
+      "label": "rinha_set_search_params()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L177",
+      "id": "bridge_bridge_rinha_set_search_params",
+      "community": 0,
+      "norm_label": "rinha_set_search_params()"
+    },
+    {
+      "label": "worst_index5_f()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L185",
+      "id": "bridge_bridge_worst_index5_f",
+      "community": 0,
+      "norm_label": "worst_index5_f()"
+    },
+    {
+      "label": "try_insert_top5_f()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L194",
+      "id": "bridge_bridge_try_insert_top5_f",
+      "community": 0,
+      "norm_label": "try_insert_top5_f()"
+    },
+    {
+      "label": "centroid_sqdist_scalar()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L212",
+      "id": "bridge_bridge_centroid_sqdist_scalar",
+      "community": 0,
+      "norm_label": "centroid_sqdist_scalar()"
+    },
+    {
+      "label": "insert_probe_cluster()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L221",
+      "id": "bridge_bridge_insert_probe_cluster",
+      "community": 0,
+      "norm_label": "insert_probe_cluster()"
+    },
+    {
+      "label": "compute_centroid_dists_avx2()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L239",
+      "id": "bridge_bridge_compute_centroid_dists_avx2",
+      "community": 0,
+      "norm_label": "compute_centroid_dists_avx2()"
+    },
+    {
+      "label": "top_n_from_dists_avx2()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L301",
+      "id": "bridge_bridge_top_n_from_dists_avx2",
+      "community": 0,
+      "norm_label": "top_n_from_dists_avx2()"
+    },
+    {
+      "label": "compute_centroid_dists_scalar()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L353",
+      "id": "bridge_bridge_compute_centroid_dists_scalar",
+      "community": 0,
+      "norm_label": "compute_centroid_dists_scalar()"
+    },
+    {
+      "label": "top_n_from_dists_scalar()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L359",
+      "id": "bridge_bridge_top_n_from_dists_scalar",
+      "community": 0,
+      "norm_label": "top_n_from_dists_scalar()"
+    },
+    {
+      "label": "scan_blocks_scalar()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L372",
+      "id": "bridge_bridge_scan_blocks_scalar",
+      "community": 0,
+      "norm_label": "scan_blocks_scalar()"
+    },
+    {
+      "label": "scan_blocks_avx2()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L401",
+      "id": "bridge_bridge_scan_blocks_avx2",
+      "community": 0,
+      "norm_label": "scan_blocks_avx2()"
+    },
+    {
+      "label": "scan_blocks()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L520",
+      "id": "bridge_bridge_scan_blocks",
+      "community": 0,
+      "norm_label": "scan_blocks()"
+    },
+    {
+      "label": "count_frauds5()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L532",
+      "id": "bridge_bridge_count_frauds5",
+      "community": 0,
+      "norm_label": "count_frauds5()"
+    },
+    {
+      "label": "search_with_nprobe()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L537",
+      "id": "bridge_bridge_search_with_nprobe",
+      "community": 0,
+      "norm_label": "search_with_nprobe()"
+    },
+    {
+      "label": "rinha_search()",
+      "file_type": "code",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L581",
+      "id": "bridge_bridge_rinha_search",
+      "community": 0,
+      "norm_label": "rinha_search()"
+    },
+    {
+      "label": "bridge.h",
+      "file_type": "code",
+      "source_file": "bridge/bridge.h",
+      "source_location": "L1",
+      "id": "bridge_bridge_h",
+      "community": 14,
+      "norm_label": "bridge.h"
+    },
+    {
+      "label": "test_bridge.c",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L1",
+      "id": "bridge_test_test_bridge_c",
+      "community": 0,
+      "norm_label": "test_bridge.c"
+    },
+    {
+      "label": "test_load_index()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L7",
+      "id": "test_test_bridge_test_load_index",
+      "community": 0,
+      "norm_label": "test_load_index()"
+    },
+    {
+      "label": "test_search_basic()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L19",
+      "id": "test_test_bridge_test_search_basic",
+      "community": 0,
+      "norm_label": "test_search_basic()"
+    },
+    {
+      "label": "test_search_consistency()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L31",
+      "id": "test_test_bridge_test_search_consistency",
+      "community": 0,
+      "norm_label": "test_search_consistency()"
+    },
+    {
+      "label": "test_search_edge_cases()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L44",
+      "id": "test_test_bridge_test_search_edge_cases",
+      "community": 0,
+      "norm_label": "test_search_edge_cases()"
+    },
+    {
+      "label": "test_params()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L70",
+      "id": "test_test_bridge_test_params",
+      "community": 0,
+      "norm_label": "test_params()"
+    },
+    {
+      "label": "test_search_many()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L85",
+      "id": "test_test_bridge_test_search_many",
+      "community": 0,
+      "norm_label": "test_search_many()"
+    },
+    {
+      "label": "test_instrumentation()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L108",
+      "id": "test_test_bridge_test_instrumentation",
+      "community": 0,
+      "norm_label": "test_instrumentation()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L125",
+      "id": "test_test_bridge_main",
+      "community": 0,
+      "norm_label": "main()"
+    },
+    {
+      "label": "build.zig",
+      "file_type": "code",
+      "source_file": "zig/build.zig",
+      "source_location": "L1",
+      "id": "zig_build_zig",
+      "community": 10,
+      "norm_label": "build.zig"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "zig/build.zig",
+      "source_location": "L3",
+      "id": "zig_build_build",
+      "community": 10,
+      "norm_label": "build()"
+    },
+    {
+      "label": "bench.zig",
+      "file_type": "code",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L1",
+      "id": "zig_src_bench_zig",
+      "community": 7,
+      "norm_label": "bench.zig"
+    },
+    {
+      "label": "nanos()",
+      "file_type": "code",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L14",
+      "id": "src_bench_nanos",
+      "community": 7,
+      "norm_label": "nanos()"
+    },
+    {
+      "label": "benchCBridge()",
+      "file_type": "code",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L20",
+      "id": "src_bench_benchcbridge",
+      "community": 7,
+      "norm_label": "benchcbridge()"
+    },
+    {
+      "label": "benchPureZig()",
+      "file_type": "code",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L30",
+      "id": "src_bench_benchpurezig",
+      "community": 7,
+      "norm_label": "benchpurezig()"
+    },
+    {
+      "label": "searchInstrumented()",
+      "file_type": "code",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L41",
+      "id": "src_bench_searchinstrumented",
+      "community": 7,
+      "norm_label": "searchinstrumented()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L107",
+      "id": "src_bench_main",
+      "community": 7,
+      "norm_label": "main()"
+    },
+    {
+      "label": "build_index.zig",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L1",
+      "id": "zig_src_build_index_zig",
+      "community": 3,
+      "norm_label": "build_index.zig"
+    },
+    {
+      "label": "Item",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L12",
+      "id": "src_build_index_item",
+      "community": 3,
+      "norm_label": "item"
+    },
+    {
+      "label": "readAll()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L17",
+      "id": "src_build_index_readall",
+      "community": 3,
+      "norm_label": "readall()"
+    },
+    {
+      "label": "parseReferences()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L49",
+      "id": "src_build_index_parsereferences",
+      "community": 3,
+      "norm_label": "parsereferences()"
+    },
+    {
+      "label": "distSq()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L93",
+      "id": "src_build_index_distsq",
+      "community": 3,
+      "norm_label": "distsq()"
+    },
+    {
+      "label": "Lcg",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L102",
+      "id": "src_build_index_lcg",
+      "community": 3,
+      "norm_label": "lcg"
+    },
+    {
+      "label": ".new()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L105",
+      "id": "src_build_index_lcg_new",
+      "community": 3,
+      "norm_label": ".new()"
+    },
+    {
+      "label": ".nextU64()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L109",
+      "id": "src_build_index_lcg_nextu64",
+      "community": 3,
+      "norm_label": ".nextu64()"
+    },
+    {
+      "label": ".nextUsize()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L114",
+      "id": "src_build_index_lcg_nextusize",
+      "community": 3,
+      "norm_label": ".nextusize()"
+    },
+    {
+      "label": ".nextF64()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L118",
+      "id": "src_build_index_lcg_nextf64",
+      "community": 3,
+      "norm_label": ".nextf64()"
+    },
+    {
+      "label": "kmeansPlusPlusInit()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L123",
+      "id": "src_build_index_kmeansplusplusinit",
+      "community": 3,
+      "norm_label": "kmeansplusplusinit()"
+    },
+    {
+      "label": "nearestCentroid()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L170",
+      "id": "src_build_index_nearestcentroid",
+      "community": 3,
+      "norm_label": "nearestcentroid()"
+    },
+    {
+      "label": "assignParallel()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L183",
+      "id": "src_build_index_assignparallel",
+      "community": 3,
+      "norm_label": "assignparallel()"
+    },
+    {
+      "label": "updateCentroids()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L195",
+      "id": "src_build_index_updatecentroids",
+      "community": 3,
+      "norm_label": "updatecentroids()"
+    },
+    {
+      "label": "quantizeI16()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L221",
+      "id": "src_build_index_quantizei16",
+      "community": 3,
+      "norm_label": "quantizei16()"
+    },
+    {
+      "label": "writeIndex()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L226",
+      "id": "src_build_index_writeindex",
+      "community": 3,
+      "norm_label": "writeindex()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L324",
+      "id": "src_build_index_main",
+      "community": 3,
+      "norm_label": "main()"
+    },
+    {
+      "label": "c_bridge.zig",
+      "file_type": "code",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L1",
+      "id": "zig_src_c_bridge_zig",
+      "community": 9,
+      "norm_label": "c_bridge.zig"
+    },
+    {
+      "label": "loadIndex()",
+      "file_type": "code",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L8",
+      "id": "src_c_bridge_loadindex",
+      "community": 9,
+      "norm_label": "loadindex()"
+    },
+    {
+      "label": "setParams()",
+      "file_type": "code",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L16",
+      "id": "src_c_bridge_setparams",
+      "community": 9,
+      "norm_label": "setparams()"
+    },
+    {
+      "label": "search()",
+      "file_type": "code",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L20",
+      "id": "src_c_bridge_search",
+      "community": 9,
+      "norm_label": "search()"
+    },
+    {
+      "label": "warmup()",
+      "file_type": "code",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L24",
+      "id": "src_c_bridge_warmup",
+      "community": 9,
+      "norm_label": "warmup()"
+    },
+    {
+      "label": "config.zig",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L1",
+      "id": "zig_src_config_zig",
+      "community": 6,
+      "norm_label": "config.zig"
+    },
+    {
+      "label": "Config",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L11",
+      "id": "src_config_config",
+      "community": 6,
+      "norm_label": "config"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L26",
+      "id": "src_config_load",
+      "community": 6,
+      "norm_label": "load()"
+    },
+    {
+      "label": "getenvZ()",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L49",
+      "id": "src_config_getenvz",
+      "community": 6,
+      "norm_label": "getenvz()"
+    },
+    {
+      "label": "envStr()",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L57",
+      "id": "src_config_envstr",
+      "community": 6,
+      "norm_label": "envstr()"
+    },
+    {
+      "label": "envInt()",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L67",
+      "id": "src_config_envint",
+      "community": 6,
+      "norm_label": "envint()"
+    },
+    {
+      "label": "envFloat()",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L78",
+      "id": "src_config_envfloat",
+      "community": 6,
+      "norm_label": "envfloat()"
+    },
+    {
+      "label": "envBool()",
+      "file_type": "code",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L88",
+      "id": "src_config_envbool",
+      "community": 6,
+      "norm_label": "envbool()"
+    },
+    {
+      "label": "dataset.zig",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L1",
+      "id": "zig_src_dataset_zig",
+      "community": 5,
+      "norm_label": "dataset.zig"
+    },
+    {
+      "label": "CFile",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L11",
+      "id": "src_dataset_cfile",
+      "community": 5,
+      "norm_label": "cfile"
+    },
+    {
+      "label": ".open()",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L14",
+      "id": "src_dataset_cfile_open",
+      "community": 5,
+      "norm_label": ".open()"
+    },
+    {
+      "label": ".close()",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L20",
+      "id": "src_dataset_cfile_close",
+      "community": 5,
+      "norm_label": ".close()"
+    },
+    {
+      "label": ".read()",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L25",
+      "id": "src_dataset_cfile_read",
+      "community": 5,
+      "norm_label": ".read()"
+    },
+    {
+      "label": ".readInt()",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L31",
+      "id": "src_dataset_cfile_readint",
+      "community": 5,
+      "norm_label": ".readint()"
+    },
+    {
+      "label": "Dataset",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L38",
+      "id": "src_dataset_dataset",
+      "community": 5,
+      "norm_label": "dataset"
+    },
+    {
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L48",
+      "id": "src_dataset_dataset_load",
+      "community": 5,
+      "norm_label": ".load()"
+    },
+    {
+      "label": ".deinit()",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L113",
+      "id": "src_dataset_dataset_deinit",
+      "community": 5,
+      "norm_label": ".deinit()"
+    },
+    {
+      "label": ".clusterBlockRange()",
+      "file_type": "code",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L119",
+      "id": "src_dataset_dataset_clusterblockrange",
+      "community": 5,
+      "norm_label": ".clusterblockrange()"
+    },
+    {
+      "label": "debug_cmp.zig",
+      "file_type": "code",
+      "source_file": "zig/src/debug_cmp.zig",
+      "source_location": "L1",
+      "id": "zig_src_debug_cmp_zig",
+      "community": 11,
+      "norm_label": "debug_cmp.zig"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "zig/src/debug_cmp.zig",
+      "source_location": "L11",
+      "id": "src_debug_cmp_main",
+      "community": 11,
+      "norm_label": "main()"
+    },
+    {
+      "label": "http_resp.zig",
+      "file_type": "code",
+      "source_file": "zig/src/http_resp.zig",
+      "source_location": "L1",
+      "id": "zig_src_http_resp_zig",
+      "community": 12,
+      "norm_label": "http_resp.zig"
+    },
+    {
+      "label": "scoreFor()",
+      "file_type": "code",
+      "source_file": "zig/src/http_resp.zig",
+      "source_location": "L27",
+      "id": "src_http_resp_scorefor",
+      "community": 12,
+      "norm_label": "scorefor()"
+    },
+    {
+      "label": "http_server.zig",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L1",
+      "id": "zig_src_http_server_zig",
+      "community": 4,
+      "norm_label": "http_server.zig"
+    },
+    {
+      "label": "__errno_location()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L22",
+      "id": "src_http_server_errno_location",
+      "community": 4,
+      "norm_label": "__errno_location()"
+    },
+    {
+      "label": "getErrno()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L23",
+      "id": "src_http_server_geterrno",
+      "community": 4,
+      "norm_label": "geterrno()"
+    },
+    {
+      "label": "Server",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L25",
+      "id": "src_http_server_server",
+      "community": 4,
+      "norm_label": "server"
+    },
+    {
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L31",
+      "id": "src_http_server_server_init",
+      "community": 4,
+      "norm_label": ".init()"
+    },
+    {
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L36",
+      "id": "src_http_server_server_run",
+      "community": 4,
+      "norm_label": ".run()"
+    },
+    {
+      "label": ".handleConnection()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L55",
+      "id": "src_http_server_server_handleconnection",
+      "community": 4,
+      "norm_label": ".handleconnection()"
+    },
+    {
+      "label": ".tryProcess()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L74",
+      "id": "src_http_server_server_tryprocess",
+      "community": 4,
+      "norm_label": ".tryprocess()"
+    },
+    {
+      "label": "writeAll()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L118",
+      "id": "src_http_server_writeall",
+      "community": 4,
+      "norm_label": "writeall()"
+    },
+    {
+      "label": "findContentLength()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L133",
+      "id": "src_http_server_findcontentlength",
+      "community": 4,
+      "norm_label": "findcontentlength()"
+    },
+    {
+      "label": "createSocket()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L145",
+      "id": "src_http_server_createsocket",
+      "community": 4,
+      "norm_label": "createsocket()"
+    },
+    {
+      "label": "setNonBlock()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L150",
+      "id": "src_http_server_setnonblock",
+      "community": 4,
+      "norm_label": "setnonblock()"
+    },
+    {
+      "label": "createTcpSocket()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L156",
+      "id": "src_http_server_createtcpsocket",
+      "community": 4,
+      "norm_label": "createtcpsocket()"
+    },
+    {
+      "label": "createUdsSocket()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L182",
+      "id": "src_http_server_createudssocket",
+      "community": 4,
+      "norm_label": "createudssocket()"
+    },
+    {
+      "label": "octalFromDecimal()",
+      "file_type": "code",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L207",
+      "id": "src_http_server_octalfromdecimal",
+      "community": 4,
+      "norm_label": "octalfromdecimal()"
+    },
+    {
+      "label": "ivf_search.zig",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L1",
+      "id": "zig_src_ivf_search_zig",
+      "community": 2,
+      "norm_label": "ivf_search.zig"
+    },
+    {
+      "label": "setParams()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L17",
+      "id": "src_ivf_search_setparams",
+      "community": 2,
+      "norm_label": "setparams()"
+    },
+    {
+      "label": "quantize()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L23",
+      "id": "src_ivf_search_quantize",
+      "community": 2,
+      "norm_label": "quantize()"
+    },
+    {
+      "label": "computeCentroidDistsAvx2()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L43",
+      "id": "src_ivf_search_computecentroiddistsavx2",
+      "community": 2,
+      "norm_label": "computecentroiddistsavx2()"
+    },
+    {
+      "label": "computeCentroidDistsScalar()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L99",
+      "id": "src_ivf_search_computecentroiddistsscalar",
+      "community": 2,
+      "norm_label": "computecentroiddistsscalar()"
+    },
+    {
+      "label": "vmovmskps()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L112",
+      "id": "src_ivf_search_vmovmskps",
+      "community": 2,
+      "norm_label": "vmovmskps()"
+    },
+    {
+      "label": "topNFromDistsAvx2()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L120",
+      "id": "src_ivf_search_topnfromdistsavx2",
+      "community": 2,
+      "norm_label": "topnfromdistsavx2()"
+    },
+    {
+      "label": "topNFromDistsScalar()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L172",
+      "id": "src_ivf_search_topnfromdistsscalar",
+      "community": 2,
+      "norm_label": "topnfromdistsscalar()"
+    },
+    {
+      "label": "tryInsertTop5()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L194",
+      "id": "src_ivf_search_tryinserttop5",
+      "community": 2,
+      "norm_label": "tryinserttop5()"
+    },
+    {
+      "label": "prefetch()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L224",
+      "id": "src_ivf_search_prefetch",
+      "community": 2,
+      "norm_label": "prefetch()"
+    },
+    {
+      "label": "loadBlock8I16()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L232",
+      "id": "src_ivf_search_loadblock8i16",
+      "community": 2,
+      "norm_label": "loadblock8i16()"
+    },
+    {
+      "label": "dimFma()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L238",
+      "id": "src_ivf_search_dimfma",
+      "community": 2,
+      "norm_label": "dimfma()"
+    },
+    {
+      "label": "scanBlocksAvx2()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L254",
+      "id": "src_ivf_search_scanblocksavx2",
+      "community": 2,
+      "norm_label": "scanblocksavx2()"
+    },
+    {
+      "label": "scanBlocksScalar()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L342",
+      "id": "src_ivf_search_scanblocksscalar",
+      "community": 2,
+      "norm_label": "scanblocksscalar()"
+    },
+    {
+      "label": "scanBlocks()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L375",
+      "id": "src_ivf_search_scanblocks",
+      "community": 2,
+      "norm_label": "scanblocks()"
+    },
+    {
+      "label": "countFrauds5()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L394",
+      "id": "src_ivf_search_countfrauds5",
+      "community": 2,
+      "norm_label": "countfrauds5()"
+    },
+    {
+      "label": "searchWithNprobe()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L402",
+      "id": "src_ivf_search_searchwithnprobe",
+      "community": 2,
+      "norm_label": "searchwithnprobe()"
+    },
+    {
+      "label": "search()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L437",
+      "id": "src_ivf_search_search",
+      "community": 2,
+      "norm_label": "search()"
+    },
+    {
+      "label": "warmup()",
+      "file_type": "code",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L499",
+      "id": "src_ivf_search_warmup",
+      "community": 2,
+      "norm_label": "warmup()"
+    },
+    {
+      "label": "main.zig",
+      "file_type": "code",
+      "source_file": "zig/src/main.zig",
+      "source_location": "L1",
+      "id": "zig_src_main_zig",
+      "community": 13,
+      "norm_label": "main.zig"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "zig/src/main.zig",
+      "source_location": "L8",
+      "id": "src_main_main",
+      "community": 13,
+      "norm_label": "main()"
+    },
+    {
+      "label": "mcc_risk.zig",
+      "file_type": "code",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L1",
+      "id": "zig_src_mcc_risk_zig",
+      "community": 8,
+      "norm_label": "mcc_risk.zig"
+    },
+    {
+      "label": "Table",
+      "file_type": "code",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L6",
+      "id": "src_mcc_risk_table",
+      "community": 8,
+      "norm_label": "table"
+    },
+    {
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L9",
+      "id": "src_mcc_risk_table_init",
+      "community": 8,
+      "norm_label": ".init()"
+    },
+    {
+      "label": ".deinit()",
+      "file_type": "code",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L13",
+      "id": "src_mcc_risk_table_deinit",
+      "community": 8,
+      "norm_label": ".deinit()"
+    },
+    {
+      "label": ".get()",
+      "file_type": "code",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L17",
+      "id": "src_mcc_risk_table_get",
+      "community": 8,
+      "norm_label": ".get()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L22",
+      "id": "src_mcc_risk_load",
+      "community": 8,
+      "norm_label": "load()"
+    },
+    {
+      "label": "vectorizer.zig",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L1",
+      "id": "zig_src_vectorizer_zig",
+      "community": 1,
+      "norm_label": "vectorizer.zig"
+    },
+    {
+      "label": "round4()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L5",
+      "id": "src_vectorizer_round4",
+      "community": 1,
+      "norm_label": "round4()"
+    },
+    {
+      "label": "clamp01()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L9",
+      "id": "src_vectorizer_clamp01",
+      "community": 1,
+      "norm_label": "clamp01()"
+    },
+    {
+      "label": "mccRiskF()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L15",
+      "id": "src_vectorizer_mccriskf",
+      "community": 1,
+      "norm_label": "mccriskf()"
+    },
+    {
+      "label": "skipWS()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L33",
+      "id": "src_vectorizer_skipws",
+      "community": 1,
+      "norm_label": "skipws()"
+    },
+    {
+      "label": "findKeyRange()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L39",
+      "id": "src_vectorizer_findkeyrange",
+      "community": 1,
+      "norm_label": "findkeyrange()"
+    },
+    {
+      "label": "findChar()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L56",
+      "id": "src_vectorizer_findchar",
+      "community": 1,
+      "norm_label": "findchar()"
+    },
+    {
+      "label": "matchingBrace()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L63",
+      "id": "src_vectorizer_matchingbrace",
+      "community": 1,
+      "norm_label": "matchingbrace()"
+    },
+    {
+      "label": "objectRange()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L85",
+      "id": "src_vectorizer_objectrange",
+      "community": 1,
+      "norm_label": "objectrange()"
+    },
+    {
+      "label": "jsonNumber()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L94",
+      "id": "src_vectorizer_jsonnumber",
+      "community": 1,
+      "norm_label": "jsonnumber()"
+    },
+    {
+      "label": "jsonBool()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L105",
+      "id": "src_vectorizer_jsonbool",
+      "community": 1,
+      "norm_label": "jsonbool()"
+    },
+    {
+      "label": "jsonString()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L114",
+      "id": "src_vectorizer_jsonstring",
+      "community": 1,
+      "norm_label": "jsonstring()"
+    },
+    {
+      "label": "arrayContainsString()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L125",
+      "id": "src_vectorizer_arraycontainsstring",
+      "community": 1,
+      "norm_label": "arraycontainsstring()"
+    },
+    {
+      "label": "isoHourUTC()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L150",
+      "id": "src_vectorizer_isohourutc",
+      "community": 1,
+      "norm_label": "isohourutc()"
+    },
+    {
+      "label": "isoMinute()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L156",
+      "id": "src_vectorizer_isominute",
+      "community": 1,
+      "norm_label": "isominute()"
+    },
+    {
+      "label": "isoYear()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L161",
+      "id": "src_vectorizer_isoyear",
+      "community": 1,
+      "norm_label": "isoyear()"
+    },
+    {
+      "label": "isoMonth()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L166",
+      "id": "src_vectorizer_isomonth",
+      "community": 1,
+      "norm_label": "isomonth()"
+    },
+    {
+      "label": "isoDay()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L172",
+      "id": "src_vectorizer_isoday",
+      "community": 1,
+      "norm_label": "isoday()"
+    },
+    {
+      "label": "daysFromCivil()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L177",
+      "id": "src_vectorizer_daysfromcivil",
+      "community": 1,
+      "norm_label": "daysfromcivil()"
+    },
+    {
+      "label": "weekdayFromISO()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L190",
+      "id": "src_vectorizer_weekdayfromiso",
+      "community": 1,
+      "norm_label": "weekdayfromiso()"
+    },
+    {
+      "label": "isoToEpochSeconds()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L197",
+      "id": "src_vectorizer_isotoepochseconds",
+      "community": 1,
+      "norm_label": "isotoepochseconds()"
+    },
+    {
+      "label": "minutesBetweenAbs()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L202",
+      "id": "src_vectorizer_minutesbetweenabs",
+      "community": 1,
+      "norm_label": "minutesbetweenabs()"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L209",
+      "id": "src_vectorizer_build",
+      "community": 1,
+      "norm_label": "build()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_get_nanos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_rinha_get_inst",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_rinha_reset_inst",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_xaligned_alloc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_quantize_fixed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_read_exact",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_rinha_load_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_rinha_set_search_params",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_worst_index5_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_try_insert_top5_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_centroid_sqdist_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_insert_probe_cluster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_compute_centroid_dists_avx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L301",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_top_n_from_dists_avx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L353",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_compute_centroid_dists_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L359",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_top_n_from_dists_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L372",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_scan_blocks_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L401",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_scan_blocks_avx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L520",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_scan_blocks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L532",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_count_frauds5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L537",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_search_with_nprobe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L581",
+      "weight": 1.0,
+      "source": "bridge_bridge_c",
+      "target": "bridge_bridge_rinha_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L582",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_search",
+      "target": "bridge_bridge_get_nanos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_instrumentation",
+      "target": "bridge_bridge_rinha_get_inst"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_instrumentation",
+      "target": "bridge_bridge_rinha_reset_inst"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_load_index",
+      "target": "bridge_bridge_xaligned_alloc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L586",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_search",
+      "target": "bridge_bridge_quantize_fixed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_load_index",
+      "target": "bridge_bridge_read_exact",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_load_index",
+      "target": "bridge_bridge_rinha_load_index"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_basic",
+      "target": "bridge_bridge_rinha_set_search_params"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_consistency",
+      "target": "bridge_bridge_rinha_set_search_params"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_edge_cases",
+      "target": "bridge_bridge_rinha_set_search_params"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_params",
+      "target": "bridge_bridge_rinha_set_search_params"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_many",
+      "target": "bridge_bridge_rinha_set_search_params"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_instrumentation",
+      "target": "bridge_bridge_rinha_set_search_params"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L393",
+      "weight": 1.0,
+      "source": "bridge_bridge_scan_blocks_scalar",
+      "target": "bridge_bridge_try_insert_top5_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L513",
+      "weight": 1.0,
+      "source": "bridge_bridge_scan_blocks_avx2",
+      "target": "bridge_bridge_try_insert_top5_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L355",
+      "weight": 1.0,
+      "source": "bridge_bridge_compute_centroid_dists_scalar",
+      "target": "bridge_bridge_centroid_sqdist_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L366",
+      "weight": 1.0,
+      "source": "bridge_bridge_top_n_from_dists_scalar",
+      "target": "bridge_bridge_insert_probe_cluster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L604",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_search",
+      "target": "bridge_bridge_compute_centroid_dists_avx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L614",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_search",
+      "target": "bridge_bridge_top_n_from_dists_avx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L606",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_search",
+      "target": "bridge_bridge_compute_centroid_dists_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L616",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_search",
+      "target": "bridge_bridge_top_n_from_dists_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L526",
+      "weight": 1.0,
+      "source": "bridge_bridge_scan_blocks",
+      "target": "bridge_bridge_scan_blocks_scalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L524",
+      "weight": 1.0,
+      "source": "bridge_bridge_scan_blocks",
+      "target": "bridge_bridge_scan_blocks_avx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L575",
+      "weight": 1.0,
+      "source": "bridge_bridge_search_with_nprobe",
+      "target": "bridge_bridge_scan_blocks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L578",
+      "weight": 1.0,
+      "source": "bridge_bridge_search_with_nprobe",
+      "target": "bridge_bridge_count_frauds5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/bridge.c",
+      "source_location": "L623",
+      "weight": 1.0,
+      "source": "bridge_bridge_rinha_search",
+      "target": "bridge_bridge_search_with_nprobe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_basic",
+      "target": "bridge_bridge_rinha_search"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_consistency",
+      "target": "bridge_bridge_rinha_search"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_edge_cases",
+      "target": "bridge_bridge_rinha_search"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_params",
+      "target": "bridge_bridge_rinha_search"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_search_many",
+      "target": "bridge_bridge_rinha_search"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "test_test_bridge_test_instrumentation",
+      "target": "bridge_bridge_rinha_search"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_test_load_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_test_search_basic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_test_search_consistency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_test_search_edge_cases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_test_params",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_test_search_many",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_test_instrumentation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "bridge_test_test_bridge_c",
+      "target": "test_test_bridge_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "test_test_bridge_main",
+      "target": "test_test_bridge_test_load_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "test_test_bridge_main",
+      "target": "test_test_bridge_test_search_basic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "test_test_bridge_main",
+      "target": "test_test_bridge_test_search_consistency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "test_test_bridge_main",
+      "target": "test_test_bridge_test_search_edge_cases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "test_test_bridge_main",
+      "target": "test_test_bridge_test_params",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "test_test_bridge_main",
+      "target": "test_test_bridge_test_search_many",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bridge/test/test_bridge.c",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "test_test_bridge_main",
+      "target": "test_test_bridge_test_instrumentation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/build.zig",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "zig_build_zig",
+      "target": "zig_build_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "zig_src_bench_zig",
+      "target": "src_bench_nanos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "zig_src_bench_zig",
+      "target": "src_bench_benchcbridge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "zig_src_bench_zig",
+      "target": "src_bench_benchpurezig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "zig_src_bench_zig",
+      "target": "src_bench_searchinstrumented",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "zig_src_bench_zig",
+      "target": "src_bench_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_bench_benchcbridge",
+      "target": "src_bench_nanos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_bench_benchpurezig",
+      "target": "src_bench_nanos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_bench_searchinstrumented",
+      "target": "src_bench_nanos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "src_bench_main",
+      "target": "src_bench_benchcbridge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "src_bench_main",
+      "target": "src_bench_benchpurezig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/bench.zig",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "src_bench_main",
+      "target": "src_bench_searchinstrumented",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_item",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_readall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_parsereferences",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_distsq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_lcg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_kmeansplusplusinit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_nearestcentroid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_assignparallel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L195",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_updatecentroids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_quantizei16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L226",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_writeindex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L324",
+      "weight": 1.0,
+      "source": "zig_src_build_index_zig",
+      "target": "src_build_index_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L336",
+      "weight": 1.0,
+      "source": "src_build_index_main",
+      "target": "src_build_index_readall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L341",
+      "weight": 1.0,
+      "source": "src_build_index_main",
+      "target": "src_build_index_parsereferences",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "src_build_index_kmeansplusplusinit",
+      "target": "src_build_index_distsq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "src_build_index_nearestcentroid",
+      "target": "src_build_index_distsq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "src_build_index_lcg",
+      "target": "src_build_index_lcg_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "src_build_index_lcg",
+      "target": "src_build_index_lcg_nextu64",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "src_build_index_lcg",
+      "target": "src_build_index_lcg_nextusize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "src_build_index_lcg",
+      "target": "src_build_index_lcg_nextf64",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "src_build_index_kmeansplusplusinit",
+      "target": "src_build_index_lcg_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "src_build_index_lcg_nextusize",
+      "target": "src_build_index_lcg_nextu64",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "src_build_index_lcg_nextf64",
+      "target": "src_build_index_lcg_nextu64",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "src_build_index_kmeansplusplusinit",
+      "target": "src_build_index_lcg_nextusize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "src_build_index_kmeansplusplusinit",
+      "target": "src_build_index_lcg_nextf64",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L357",
+      "weight": 1.0,
+      "source": "src_build_index_main",
+      "target": "src_build_index_kmeansplusplusinit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "src_build_index_assignparallel",
+      "target": "src_build_index_nearestcentroid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L366",
+      "weight": 1.0,
+      "source": "src_build_index_main",
+      "target": "src_build_index_assignparallel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L367",
+      "weight": 1.0,
+      "source": "src_build_index_main",
+      "target": "src_build_index_updatecentroids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L278",
+      "weight": 1.0,
+      "source": "src_build_index_writeindex",
+      "target": "src_build_index_quantizei16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L382",
+      "weight": 1.0,
+      "source": "src_build_index_main",
+      "target": "src_build_index_writeindex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "zig/src/build_index.zig",
+      "source_location": "L313",
+      "weight": 1.0,
+      "source": "src_build_index_writeindex",
+      "target": "src_http_server_writeall"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "zig_src_c_bridge_zig",
+      "target": "src_c_bridge_loadindex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "zig_src_c_bridge_zig",
+      "target": "src_c_bridge_setparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "zig_src_c_bridge_zig",
+      "target": "src_c_bridge_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/c_bridge.zig",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "zig_src_c_bridge_zig",
+      "target": "src_c_bridge_warmup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "zig_src_config_zig",
+      "target": "src_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "zig_src_config_zig",
+      "target": "src_config_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "zig_src_config_zig",
+      "target": "src_config_getenvz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "zig_src_config_zig",
+      "target": "src_config_envstr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "zig_src_config_zig",
+      "target": "src_config_envint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "zig_src_config_zig",
+      "target": "src_config_envfloat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "zig_src_config_zig",
+      "target": "src_config_envbool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_config_load",
+      "target": "src_config_envstr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_config_load",
+      "target": "src_config_envint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_config_load",
+      "target": "src_config_envbool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "src_config_load",
+      "target": "src_config_getenvz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "src_config_envstr",
+      "target": "src_config_getenvz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "src_config_envint",
+      "target": "src_config_getenvz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "src_config_envfloat",
+      "target": "src_config_getenvz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/config.zig",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "src_config_envbool",
+      "target": "src_config_envint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "zig_src_dataset_zig",
+      "target": "src_dataset_cfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "zig_src_dataset_zig",
+      "target": "src_dataset_dataset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_dataset_cfile",
+      "target": "src_dataset_cfile_open",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_dataset_cfile",
+      "target": "src_dataset_cfile_close",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_dataset_cfile",
+      "target": "src_dataset_cfile_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_dataset_cfile",
+      "target": "src_dataset_cfile_readint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "src_dataset_dataset_load",
+      "target": "src_dataset_cfile_open",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "src_dataset_dataset_load",
+      "target": "src_dataset_cfile_close",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_dataset_cfile_readint",
+      "target": "src_dataset_cfile_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "src_dataset_dataset_load",
+      "target": "src_dataset_cfile_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "src_dataset_dataset_load",
+      "target": "src_dataset_cfile_readint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "src_dataset_dataset",
+      "target": "src_dataset_dataset_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "src_dataset_dataset",
+      "target": "src_dataset_dataset_deinit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/dataset.zig",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "src_dataset_dataset",
+      "target": "src_dataset_dataset_clusterblockrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/debug_cmp.zig",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "zig_src_debug_cmp_zig",
+      "target": "src_debug_cmp_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_resp.zig",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "zig_src_http_resp_zig",
+      "target": "src_http_resp_scorefor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_errno_location",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_geterrno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_writeall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_findcontentlength",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_createsocket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_setnonblock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_createtcpsocket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_createudssocket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "zig_src_http_server_zig",
+      "target": "src_http_server_octalfromdecimal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_http_server_geterrno",
+      "target": "src_http_server_errno_location",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_http_server_server_run",
+      "target": "src_http_server_geterrno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "src_http_server_server_handleconnection",
+      "target": "src_http_server_geterrno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "src_http_server_writeall",
+      "target": "src_http_server_geterrno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_http_server_server",
+      "target": "src_http_server_server_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_http_server_server",
+      "target": "src_http_server_server_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_http_server_server",
+      "target": "src_http_server_server_handleconnection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "src_http_server_server",
+      "target": "src_http_server_server_tryprocess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_http_server_server_init",
+      "target": "src_http_server_createsocket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "src_http_server_server_run",
+      "target": "src_http_server_server_handleconnection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "src_http_server_server_handleconnection",
+      "target": "src_http_server_server_tryprocess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "src_http_server_server_tryprocess",
+      "target": "src_http_server_writeall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "src_http_server_server_tryprocess",
+      "target": "src_http_server_findcontentlength",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "src_http_server_createsocket",
+      "target": "src_http_server_createtcpsocket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "src_http_server_createsocket",
+      "target": "src_http_server_createudssocket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/http_server.zig",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "src_http_server_createudssocket",
+      "target": "src_http_server_octalfromdecimal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_setparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_quantize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_computecentroiddistsavx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_computecentroiddistsscalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_vmovmskps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_topnfromdistsavx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_topnfromdistsscalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_tryinserttop5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_prefetch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_loadblock8i16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_dimfma",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_scanblocksavx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L342",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_scanblocksscalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L375",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_scanblocks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L394",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_countfrauds5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L402",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_searchwithnprobe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L437",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L499",
+      "weight": 1.0,
+      "source": "zig_src_ivf_search_zig",
+      "target": "src_ivf_search_warmup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L441",
+      "weight": 1.0,
+      "source": "src_ivf_search_search",
+      "target": "src_ivf_search_quantize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L457",
+      "weight": 1.0,
+      "source": "src_ivf_search_search",
+      "target": "src_ivf_search_computecentroiddistsavx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L459",
+      "weight": 1.0,
+      "source": "src_ivf_search_search",
+      "target": "src_ivf_search_computecentroiddistsscalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "src_ivf_search_topnfromdistsavx2",
+      "target": "src_ivf_search_vmovmskps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L311",
+      "weight": 1.0,
+      "source": "src_ivf_search_scanblocksavx2",
+      "target": "src_ivf_search_vmovmskps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L466",
+      "weight": 1.0,
+      "source": "src_ivf_search_search",
+      "target": "src_ivf_search_topnfromdistsavx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L468",
+      "weight": 1.0,
+      "source": "src_ivf_search_search",
+      "target": "src_ivf_search_topnfromdistsscalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L336",
+      "weight": 1.0,
+      "source": "src_ivf_search_scanblocksavx2",
+      "target": "src_ivf_search_tryinserttop5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L369",
+      "weight": 1.0,
+      "source": "src_ivf_search_scanblocksscalar",
+      "target": "src_ivf_search_tryinserttop5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L289",
+      "weight": 1.0,
+      "source": "src_ivf_search_scanblocksavx2",
+      "target": "src_ivf_search_prefetch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L246",
+      "weight": 1.0,
+      "source": "src_ivf_search_dimfma",
+      "target": "src_ivf_search_loadblock8i16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L300",
+      "weight": 1.0,
+      "source": "src_ivf_search_scanblocksavx2",
+      "target": "src_ivf_search_dimfma",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L386",
+      "weight": 1.0,
+      "source": "src_ivf_search_scanblocks",
+      "target": "src_ivf_search_scanblocksavx2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L388",
+      "weight": 1.0,
+      "source": "src_ivf_search_scanblocks",
+      "target": "src_ivf_search_scanblocksscalar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L431",
+      "weight": 1.0,
+      "source": "src_ivf_search_searchwithnprobe",
+      "target": "src_ivf_search_scanblocks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L434",
+      "weight": 1.0,
+      "source": "src_ivf_search_searchwithnprobe",
+      "target": "src_ivf_search_countfrauds5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L488",
+      "weight": 1.0,
+      "source": "src_ivf_search_search",
+      "target": "src_ivf_search_searchwithnprobe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/ivf_search.zig",
+      "source_location": "L507",
+      "weight": 1.0,
+      "source": "src_ivf_search_warmup",
+      "target": "src_ivf_search_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/main.zig",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "zig_src_main_zig",
+      "target": "src_main_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "zig_src_mcc_risk_zig",
+      "target": "src_mcc_risk_table",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "zig_src_mcc_risk_zig",
+      "target": "src_mcc_risk_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_mcc_risk_table",
+      "target": "src_mcc_risk_table_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_mcc_risk_table",
+      "target": "src_mcc_risk_table_deinit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_mcc_risk_table",
+      "target": "src_mcc_risk_table_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_mcc_risk_load",
+      "target": "src_mcc_risk_table_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/mcc_risk.zig",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_mcc_risk_load",
+      "target": "src_mcc_risk_table_deinit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_round4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_clamp01",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_mccriskf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_skipws",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_findkeyrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_findchar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_matchingbrace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_objectrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_jsonnumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_jsonbool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_jsonstring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_arraycontainsstring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_isohourutc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_isominute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_isoyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_isomonth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_isoday",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_daysfromcivil",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_weekdayfromiso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L197",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_isotoepochseconds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_minutesbetweenabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "zig_src_vectorizer_zig",
+      "target": "src_vectorizer_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L258",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_round4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_clamp01",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L267",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_mccriskf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "src_vectorizer_objectrange",
+      "target": "src_vectorizer_skipws",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonnumber",
+      "target": "src_vectorizer_skipws",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonbool",
+      "target": "src_vectorizer_skipws",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonstring",
+      "target": "src_vectorizer_skipws",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "src_vectorizer_arraycontainsstring",
+      "target": "src_vectorizer_skipws",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "src_vectorizer_objectrange",
+      "target": "src_vectorizer_findkeyrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonnumber",
+      "target": "src_vectorizer_findkeyrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonbool",
+      "target": "src_vectorizer_findkeyrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonstring",
+      "target": "src_vectorizer_findkeyrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "src_vectorizer_arraycontainsstring",
+      "target": "src_vectorizer_findkeyrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "src_vectorizer_objectrange",
+      "target": "src_vectorizer_findchar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonnumber",
+      "target": "src_vectorizer_findchar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonbool",
+      "target": "src_vectorizer_findchar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "src_vectorizer_jsonstring",
+      "target": "src_vectorizer_findchar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "src_vectorizer_arraycontainsstring",
+      "target": "src_vectorizer_findchar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "src_vectorizer_objectrange",
+      "target": "src_vectorizer_matchingbrace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_objectrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L217",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_jsonnumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_jsonbool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_jsonstring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_arraycontainsstring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "src_vectorizer_isotoepochseconds",
+      "target": "src_vectorizer_isohourutc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L258",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_isohourutc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "src_vectorizer_isotoepochseconds",
+      "target": "src_vectorizer_isominute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "src_vectorizer_weekdayfromiso",
+      "target": "src_vectorizer_isoyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "src_vectorizer_isotoepochseconds",
+      "target": "src_vectorizer_isoyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "src_vectorizer_weekdayfromiso",
+      "target": "src_vectorizer_isomonth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "src_vectorizer_isotoepochseconds",
+      "target": "src_vectorizer_isomonth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "src_vectorizer_weekdayfromiso",
+      "target": "src_vectorizer_isoday",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "src_vectorizer_isotoepochseconds",
+      "target": "src_vectorizer_isoday",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "src_vectorizer_weekdayfromiso",
+      "target": "src_vectorizer_daysfromcivil",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "src_vectorizer_isotoepochseconds",
+      "target": "src_vectorizer_daysfromcivil",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_weekdayfromiso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "src_vectorizer_minutesbetweenabs",
+      "target": "src_vectorizer_isotoepochseconds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "zig/src/vectorizer.zig",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "src_vectorizer_build",
+      "target": "src_vectorizer_minutesbetweenabs",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "12fd35f881136970932d3b0601bf610ee05e43be"
+}

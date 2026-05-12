@@ -1,0 +1,78 @@
+{
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/bridge/bridge.c": {
+    "mtime": 1778424115.0823877,
+    "hash": "f11abe9c6519ee81f427ca33e9b8e516"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/bridge/bridge.h": {
+    "mtime": 1778424115.0823877,
+    "hash": "43d46198ca8234735a38d28d337a4d69"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/bridge/test/test_bridge.c": {
+    "mtime": 1778424115.149389,
+    "hash": "75627e22f3d3a08629e104d9563846c9"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/build.zig": {
+    "mtime": 1778448627.256609,
+    "hash": "de0f24cb8dab62854809ee0dc16f1780"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/bench.zig": {
+    "mtime": 1778448627.257497,
+    "hash": "7a67b052450d3c16c8d146802f8c0dd3"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/build_index.zig": {
+    "mtime": 1778448627.2575886,
+    "hash": "d9575b402a7a178985aa233f6a5bdb15"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/c_bridge.zig": {
+    "mtime": 1778448627.2575886,
+    "hash": "cc21f57db6a1a7ad47b00ed0b4d6c695"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/config.zig": {
+    "mtime": 1778448627.2575886,
+    "hash": "8eb6e1ff3c598769fb190b9e2761135a"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/dataset.zig": {
+    "mtime": 1778448627.2575886,
+    "hash": "1001d3da3acd4115e374426b3d401cb6"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/debug_cmp.zig": {
+    "mtime": 1778448627.2575886,
+    "hash": "56fc33e07a89b6a1e5507237e90eebf3"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/http_resp.zig": {
+    "mtime": 1778448627.2578194,
+    "hash": "2da26c823dced8db32846a0dae8208b8"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/http_server.zig": {
+    "mtime": 1778448627.2578194,
+    "hash": "5dbfe772a212b7b00ea1762b702b93ae"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/ivf_search.zig": {
+    "mtime": 1778448627.2578194,
+    "hash": "c91ba068a4947896b7082467a62d091f"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/main.zig": {
+    "mtime": 1778448627.2578194,
+    "hash": "7b1e0ed7ec7669a496f5aae4d8ad91cc"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/mcc_risk.zig": {
+    "mtime": 1778448627.2578194,
+    "hash": "4080260d2aa375ca14014cd26caff8e6"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/zig/src/vectorizer.zig": {
+    "mtime": 1778448627.2578194,
+    "hash": "837fadd087664f03a52afab7e30c0db0"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/README.md": {
+    "mtime": 1778448627.0086594,
+    "hash": "f05e4cdf5968a65423f95ba1ea7326aa"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/docker-compose.yml": {
+    "mtime": 1778448627.0086594,
+    "hash": "c8d73ae14cf589264c0d45cedb48738f"
+  },
+  "/home/thiago/Projects/rinha-2026/rinha-2026-zig/bridge/README.md": {
+    "mtime": 1778427309.7562854,
+    "hash": "33ebe6341768ee350672d5cd856cb3ce"
+  }
+}
