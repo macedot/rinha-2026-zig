@@ -25,7 +25,7 @@ x-api-common: &api-common
 
 services:
   lb:
-    image: jrblatt/so-no-forevis:v0.0.2
+    image: jrblatt/so-no-forevis:v1.0.0
     container_name: rinha-zig-lb
     restart: always
     depends_on:
