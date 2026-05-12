@@ -2,9 +2,6 @@ const std = @import("std");
 const c = @cImport({
     @cInclude("sys/socket.h");
     @cInclude("sys/un.h");
-    @cInclude("netinet/in.h");
-    @cInclude("netinet/tcp.h");
-    @cInclude("arpa/inet.h");
     @cInclude("unistd.h");
     @cInclude("fcntl.h");
     @cInclude("sys/stat.h");
@@ -27,13 +24,20 @@ pub const Server = struct {
     ds: ?*dataset.Dataset,
     use_zig: bool,
     server_fd: c_int,
+    ctrl_fd: c_int,
 
     pub fn init(cfg: *const config.Config, ds: ?*dataset.Dataset, use_zig: bool) !Server {
-        const server_fd = try createSocket(cfg);
-        return Server{ .cfg = cfg, .ds = ds, .use_zig = use_zig, .server_fd = server_fd };
+        const server_fd = try createUdsSocket(cfg);
+        const ctrl_fd = try createCtrlSocket(cfg.uds_path);
+        return Server{ .cfg = cfg, .ds = ds, .use_zig = use_zig, .server_fd = server_fd, .ctrl_fd = ctrl_fd };
     }
 
     pub fn run(self: *Server) !void {
+        // Spawn thread for ctrl socket (SCM_RIGHTS fd passing from LB)
+        const ctrl_thread = try std.Thread.spawn(.{}, ctrlAcceptLoop, .{self});
+        ctrl_thread.detach();
+
+        // Main thread handles direct UDS connections (health checks)
         while (true) {
             var client_addr: c.struct_sockaddr = undefined;
             var client_addr_len: c.socklen_t = @sizeOf(c.struct_sockaddr);
@@ -44,11 +48,35 @@ pub const Server = struct {
                 std.debug.print("accept error: {}\n", .{e});
                 return error.AcceptFailed;
             }
-            defer _ = c.close(client_fd);
             self.handleConnection(client_fd) catch |err| switch (err) {
                 error.ConnectionClosed, error.BrokenPipe => {},
                 else => std.debug.print("conn error: {}\n", .{err}),
             };
+            _ = c.close(client_fd);
+        }
+    }
+
+    fn ctrlAcceptLoop(self: *Server) void {
+        while (true) {
+            var client_addr: c.struct_sockaddr_un = undefined;
+            var client_addr_len: c.socklen_t = @sizeOf(c.struct_sockaddr_un);
+            const conn_fd = c.accept(self.ctrl_fd, @ptrCast(&client_addr), &client_addr_len);
+            if (conn_fd < 0) {
+                const e = getErrno();
+                if (e == c.EINTR) continue;
+                std.debug.print("ctrl accept error: {}\n", .{e});
+                continue;
+            }
+
+            const client_fd = recvFD(conn_fd);
+            _ = c.close(conn_fd);
+            if (client_fd < 0) continue;
+
+            self.handleConnection(client_fd) catch |err| switch (err) {
+                error.ConnectionClosed, error.BrokenPipe => {},
+                else => std.debug.print("conn error: {}\n", .{err}),
+            };
+            _ = c.close(client_fd);
         }
     }
 
@@ -142,43 +170,6 @@ fn findContentLength(headers: []const u8) ?usize {
     return v;
 }
 
-fn createSocket(cfg: *const config.Config) !c_int {
-    if (cfg.use_tcp) return createTcpSocket(cfg);
-    return createUdsSocket(cfg);
-}
-
-fn setNonBlock(fd: c_int) !void {
-    const flags = c.fcntl(fd, c.F_GETFL, @as(c_int, 0));
-    if (flags < 0) return error.FcntlFailed;
-    _ = c.fcntl(fd, c.F_SETFL, flags | c.O_NONBLOCK);
-}
-
-fn createTcpSocket(cfg: *const config.Config) !c_int {
-    const fd = c.socket(c.AF_INET, c.SOCK_STREAM, 0);
-    if (fd < 0) return error.SocketFailed;
-    errdefer _ = c.close(fd);
-
-    var opt: c_int = 1;
-    _ = c.setsockopt(fd, c.SOL_SOCKET, c.SO_REUSEADDR, &opt, @sizeOf(c_int));
-    if (cfg.reuse_port) {
-        _ = c.setsockopt(fd, c.SOL_SOCKET, c.SO_REUSEPORT, &opt, @sizeOf(c_int));
-    }
-    if (cfg.tcp_nodelay) {
-        _ = c.setsockopt(fd, c.IPPROTO_TCP, c.TCP_NODELAY, &opt, @sizeOf(c_int));
-    }
-
-    var addr: c.struct_sockaddr_in = std.mem.zeroes(c.struct_sockaddr_in);
-    addr.sin_family = c.AF_INET;
-    addr.sin_port = c.htons(cfg.port);
-    addr.sin_addr.s_addr = if (std.mem.eql(u8, cfg.host, "0.0.0.0")) c.INADDR_ANY else c.inet_addr(cfg.host.ptr);
-
-    if (c.bind(fd, @ptrCast(&addr), @sizeOf(c.struct_sockaddr_in)) != 0) return error.BindFailed;
-    if (c.listen(fd, 128) != 0) return error.ListenFailed;
-
-    std.debug.print("listening TCP {s}:{}\n", .{ cfg.host, cfg.port });
-    return fd;
-}
-
 fn createUdsSocket(cfg: *const config.Config) !c_int {
     const fd = c.socket(c.AF_UNIX, c.SOCK_STREAM, 0);
     if (fd < 0) return error.SocketFailed;
@@ -202,6 +193,63 @@ fn createUdsSocket(cfg: *const config.Config) !c_int {
 
     std.debug.print("listening UDS {s} mode={}\n", .{ cfg.uds_path, cfg.uds_mode });
     return fd;
+}
+
+fn createCtrlSocket(uds_path: []const u8) !c_int {
+    const ctrl_path = try std.heap.page_allocator.alloc(u8, uds_path.len + 6);
+    defer std.heap.page_allocator.free(ctrl_path);
+    @memcpy(ctrl_path[0..uds_path.len], uds_path);
+    @memcpy(ctrl_path[uds_path.len..], ".ctrl\x00");
+
+    _ = c.unlink(ctrl_path.ptr);
+
+    const fd = c.socket(c.AF_UNIX, c.SOCK_STREAM, 0);
+    if (fd < 0) return error.SocketFailed;
+    errdefer _ = c.close(fd);
+
+    var addr: c.struct_sockaddr_un = std.mem.zeroes(c.struct_sockaddr_un);
+    addr.sun_family = c.AF_UNIX;
+    const path_len = @min(ctrl_path.len - 1, @sizeOf(@TypeOf(addr.sun_path)) - 1);
+    @memcpy(addr.sun_path[0..path_len], ctrl_path[0..path_len]);
+    addr.sun_path[path_len] = 0;
+
+    if (c.bind(fd, @ptrCast(&addr), @sizeOf(c.struct_sockaddr_un)) != 0) return error.BindFailed;
+    if (c.listen(fd, 128) != 0) return error.ListenFailed;
+
+    std.debug.print("listening ctrl {s}.ctrl\n", .{uds_path});
+    return fd;
+}
+
+fn recvFD(sockfd: c_int) c_int {
+    const cmsg_space = c.CMSG_SPACE(@sizeOf(c_int));
+    var cmsg_buf: [*]u8 = @ptrCast(std.heap.page_allocator.alloc(u8, cmsg_space) catch return -1);
+    defer std.heap.page_allocator.free(cmsg_buf[0..cmsg_space]);
+
+    var dummy: u8 = 0;
+    var iov = c.struct_iovec{
+        .iov_base = &dummy,
+        .iov_len = 1,
+    };
+
+    var msg: c.struct_msghdr = std.mem.zeroes(c.struct_msghdr);
+    msg.msg_iov = &iov;
+    msg.msg_iovlen = 1;
+    msg.msg_control = cmsg_buf;
+    msg.msg_controllen = cmsg_space;
+
+    const n = c.recvmsg(sockfd, &msg, 0);
+    if (n < 0) return -1;
+
+    const cmsg = c.CMSG_FIRSTHDR(&msg);
+    if (cmsg == null) return -1;
+    if (cmsg.*.cmsg_level != c.SOL_SOCKET or cmsg.*.cmsg_type != c.SCM_RIGHTS) return -1;
+
+    // Manually compute CMSG_DATA (macro issues in Zig C import)
+    // CMSG_DATA(cmsg) = (void *)((char *)cmsg + sizeof(struct cmsghdr))
+    const cmsg_bytes = @as([*]u8, @ptrCast(cmsg));
+    const data_offset = @sizeOf(c.struct_cmsghdr);
+    const fd_ptr: *c_int = @ptrCast(@alignCast(cmsg_bytes + data_offset));
+    return fd_ptr.*;
 }
 
 fn octalFromDecimal(mode: u32) u32 {
