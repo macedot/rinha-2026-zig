@@ -15,12 +15,8 @@ COPY zig/build.zig zig/build.zig
 COPY zig/src/ zig/src/
 # Legacy C bridge and old index are gone. We use the 24 partitioned int16 .bin files.
 
-# Create data dir. In release builds the 24 part*.bin files are expected
-# to be present in the build context (pre-generated exactly like C repo).
+# Create data dir (the actual index files are loaded at runtime from $INDEX_PATH).
 RUN mkdir -p /app/data
-
-# Copy pre-generated partitioned data if present in context (fast path)
-COPY data/ /app/data/ 2>/dev/null || true
 
 # Build pure Zig binary (haswell + musl target recommended)
 RUN cd zig && zig build \
@@ -36,11 +32,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 WORKDIR /app
 COPY --from=build /app/server /app/server
 
-# Partitioned index directory (must contain the 24 partN_*.bin files
-# produced by the C indexer that achieved 0/0 + 6000)
-COPY data/ /app/data/
+# Partitioned index directory.
+# The 24 partN_*.bin files are required at runtime (same as the C implementation).
+# We create the directory so the image is always valid.
+#
+# For a complete self-contained production image:
+#   - Ensure the files are present in ./data/ in the build context before `docker build`
+#     (the release workflow / CI can prepare them), or
+#   - Mount them at runtime via volume at $INDEX_PATH.
+RUN mkdir -p /app/data
 
-# INDEX_PATH is now a directory (matches winning C layout)
+# INDEX_PATH is a directory containing the partitioned index (matches winning C layout)
 ENV INDEX_PATH=/app/data
 ENV LISTEN_TCP=0
 ENV UDS_PATH=/tmp/rinha.sock
