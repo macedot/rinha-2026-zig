@@ -14,14 +14,9 @@ x-api-common: &api-common
         cpus: "0.4"
         memory: "150M"
   environment: &api-env
-    INDEX_PATH: "/app/resources/index.bin"
+    INDEX_PATH: "/app/data"
     UDS_MODE: "666"
     UNLINK_UDS: "1"
-    IVF_NPROBE: "8"
-    IVF_FULL_NPROBE: "24"
-    CANDIDATES: "0"
-  security_opt:
-    - seccomp:unconfined
 
 services:
   lb:
@@ -51,8 +46,7 @@ services:
       nofile:
         soft: 65535
         hard: 65535
-    security_opt:
-      - seccomp:unconfined
+    # No seccomp:unconfined (matches final C discipline)
 
   api1:
     <<: *api-common

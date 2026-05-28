@@ -1,7 +1,7 @@
-# Deny all
+# Deny all by default (old aggressive whitelist style kept for compatibility)
 *
 
-# Allow project structure
+# Core project files
 !/
 !/.github/
 !/.github/workflows/
@@ -15,12 +15,7 @@
 !info.json
 !.gitignore
 
-# Allow data
-!data/
-!data/index.bin
-!data/index.bin.gz
-
-# Allow resources
+# Resources (small)
 !resources/
 !resources/example-payloads.json
 !resources/example-references.json
@@ -28,10 +23,18 @@
 !resources/mcc_risk.json
 !resources/references.json.gz
 
-# Allow zig source
+# Zig source (the new partitioned architecture lives here)
 !zig/
 !zig/build.zig
 !zig/src/
 !zig/src/*.zig
-!zig/src/*.c
-!zig/src/*.h
+
+# Build artifacts (always ignore)
+zig-out/
+zig-cache/
+*.o
+*.a
+
+# Large generated data (use the same pattern as rinha-2026-c — copy or LFS)
+data/
+!data/.gitkeep
